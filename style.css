@@ -13,13 +13,12 @@ html {
 }
 
 /* ================= GLOBAL ================= */
-@import url('https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300;400;500;600;700&display=swap');
 
-.hero-title {
-    font-family: 'Philosopher', serif;
+body {
+    font-family: 'Parkinsans', sans-serif;
 }
 
-.hero-text {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 300;
+.philosopher {
+    font-family: 'Philosopher', serif;
 }
