@@ -22,8 +22,7 @@
 
 
     <!-- NAVBAR -->
-
-    <nav class="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
+    <nav id="navbar" class="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
 
         <div class="max-w-7xl mx-auto px-6">
 
@@ -209,6 +208,32 @@
         </div>
 
     </nav>
+    <script>
+
+        let lastScroll = 0;
+        const navbar = document.getElementById("navbar");
+
+        window.addEventListener("scroll", () => {
+
+            let currentScroll = window.pageYOffset;
+
+            if (currentScroll > lastScroll) {
+
+                navbar.classList.remove("nav-show");
+                navbar.classList.add("nav-hide");
+
+            } else {
+
+                navbar.classList.remove("nav-hide");
+                navbar.classList.add("nav-show");
+
+            }
+
+            lastScroll = currentScroll;
+
+        });
+
+    </script>
 
 
 
@@ -273,7 +298,7 @@
                         Founded in 1987.
                     </p>
 
-                    <div class="flex flex-col sm:flex-row gap-4">
+                    <div class="hidden sm:flex flex-col sm:flex-row gap-4">
 
                         <a href="#"
                             class="bg-green-500 hover:bg-green-600 px-6 py-3 rounded-full font-medium text-center">
@@ -460,7 +485,7 @@
 
         <!-- PARALLAX BACKGROUND -->
         <div id="galleryBg" class="absolute inset-0 bg-center bg-cover transition-all duration-700"
-            style="background-image:url('/Assets/Park.jpg'); background-attachment:fixed;">
+            style="background-image:url('/Assets/Sea.jpg'); background-attachment:fixed;">
         </div>
 
         <!-- Overlay -->
@@ -505,7 +530,6 @@
     <script>
 
         const images = [
-            "/Assets/Sea.jpg",
             "/Assets/Park.jpg",
             "/Assets/Onam.jpg",
             "/Assets/America.jpg",
