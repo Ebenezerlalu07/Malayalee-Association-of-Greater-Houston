@@ -216,7 +216,10 @@
     <section class="relative min-h-[70vh] md:h-[70vh] flex items-center text-white">
 
         <div class="absolute inset-0">
-            <img src="/Assets/main bg.jpg" class="w-full h-full object-cover">
+            <video autoplay muted loop playsinline class="w-full h-full object-cover">
+                <source src="/Assets/Banner video 1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
 
         <div class="absolute inset-0 bg-black/50"></div>
@@ -228,13 +231,42 @@
 
                 <div class="max-w-xl md:max-w-3xl">
 
-                    <h1 class="philosopher text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-1">
-                        Welcome to
+                    <h1 id="typingTitle"
+                        class="philosopher text-6xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-1">
                     </h1>
 
-                    <h2 class="philosopher text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-4 font-medium leading-snug">
-                        Malayalee Association of Greater Houston
+                    <h2 id="typingSubtitle"
+                        class="philosopher text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-4 font-medium leading-snug">
                     </h2>
+                    <script>
+
+                        const titleText = "Welcome to";
+                        const subtitleText = "Malayalee Association of Greater Houston";
+
+                        let i = 0;
+                        let j = 0;
+
+                        function typeTitle() {
+                            if (i < titleText.length) {
+                                document.getElementById("typingTitle").innerHTML += titleText.charAt(i);
+                                i++;
+                                setTimeout(typeTitle, 80);
+                            } else {
+                                typeSubtitle();
+                            }
+                        }
+
+                        function typeSubtitle() {
+                            if (j < subtitleText.length) {
+                                document.getElementById("typingSubtitle").innerHTML += subtitleText.charAt(j);
+                                j++;
+                                setTimeout(typeSubtitle, 40);
+                            }
+                        }
+
+                        typeTitle();
+
+                    </script>
 
                     <p class="text-gray-200 mb-6 leading-relaxed text-sm sm:text-base md:text-lg max-w-lg">
                         The Malayalee Association of Greater Houston (MAGH) is a non-profit charitable organization.
@@ -299,17 +331,14 @@
 
                 <div class="flex items-center justify-center md:justify-end gap-3 text-white">
 
-                    <!-- Telegram Circle -->
-                    <div class="flex items-center gap-3 text-white">
+                    <!-- Location Icon -->
+                    <a href="https://maps.google.com" target="_blank"
+                        class="bg-white/20 backdrop-blur w-12 h-12 rounded-full flex items-center justify-center hover:bg-white/40 transition">
 
-                        <div
-                            class="bg-white/20 backdrop-blur w-14 h-14 rounded-full flex items-center justify-center text-white">
-                            <a href="#">
-                                <i data-lucide="map-pin" class="w-6 h-6"></i>
-                            </a>
-                        </div>
+                        <i data-lucide="map-pin" class="w-5 h-5"></i>
 
-                    </div>
+                    </a>
+
                     <script>
                         lucide.createIcons();
                     </script>
@@ -346,7 +375,7 @@
 
 
     <!-- ABOUT SECTION -->
-    <section class=" py-10">
+    <section class="fade-section py-10">
 
         <div class="max-w-7xl mx-auto px-6">
 
@@ -356,12 +385,12 @@
                 <!-- Left Content -->
                 <div>
 
-                    <h3 class="text-4xl md:text-4xl font-light text-gray-900 mb-6">
+                    <h3 class="text-3xl md:text-4xl font-light text-gray-900 mb-6">
                         Uniting <span class="font-bold">Malayalee Community</span> Through Culture Service
                     </h3>
 
 
-                    <p class="text-black leading-relaxed mb-8">
+                    <p class="text-black leading-relaxed mb-6">
                         MAGH organized 6 Passport fairs in the last 3 years by Fort Bend County for residents
                         in Houston and its suburbs. Conducted several sports tournaments every year for
                         Basketball, Volleyball, Cricket, Badminton and Soccer for youngsters to promote
@@ -378,12 +407,15 @@
                 <!-- Right Image -->
                 <div class="relative">
 
-                    <img src="/Assets/About image.jpg" class="rounded-3xl w-full object-cover">
+                    <img src="/Assets/About image.jpg" class="w-full object-cover rounded-tl-[40px] rounded-br-[40px]">
 
                     <!-- Arrow Button -->
                     <div
-                        class="absolute bottom-5 right-5 bg-white/30 backdrop-blur w-12 h-12 rounded-full flex items-center justify-center text-white">
-                        <i data-lucide="arrow-right" class="w-6 h-6"></i>
+                        class="absolute bottom-5 right-5 bg-white/30 backdrop-blur w-12 h-12 rounded-full flex items-center justify-center text-white cursor-pointer transition-all duration-300 hover:bg-green-600 hover:scale-110">
+
+                        <i data-lucide="arrow-right"
+                            class="w-6 h-6 transition-transform duration-300 group-hover:translate-x-1"></i>
+
                     </div>
 
                 </div>
@@ -392,9 +424,9 @@
 
 
             <!-- Story Section -->
-            <div class="mt-20">
+            <div class="mt-10">
 
-                <h3 class="text-4xl md:text-4xl font-light text-gray-900 mb-6">
+                <h3 class="text-3xl md:text-4xl font-light text-gray-900 mb-6">
                     Malayalee Association of
                     <span class="font-bold">Greater Houston</span>, Story
                 </h3>
@@ -424,117 +456,102 @@
 
 
     <!-- GALLERY SECTION -->
-    <section class="relative w-full h-[70vh] overflow-hidden">
+    <section class="relative h-[70vh] overflow-hidden">
 
-        <!-- Background Images -->
-        <div id="gallerySlider" class="absolute inset-0">
-
-            <img src="/Assets/Park.jpg"
-                class="slide absolute w-full h-full object-cover transition-opacity duration-700">
-
-            <img src="/Assets/gallery2.jpg"
-                class="slide absolute w-full h-full object-cover opacity-0 transition-opacity duration-700">
-
-            <img src="/Assets/gallery3.jpg"
-                class="slide absolute w-full h-full object-cover opacity-0 transition-opacity duration-700">
-
+        <!-- PARALLAX BACKGROUND -->
+        <div id="galleryBg" class="absolute inset-0 bg-center bg-cover transition-all duration-700"
+            style="background-image:url('/Assets/Park.jpg'); background-attachment:fixed;">
         </div>
 
         <!-- Overlay -->
-        <div class="absolute inset-0 bg-black/30"></div>
+        <div class="absolute inset-0 bg-black/40"></div>
 
-        <!-- Content Container -->
-        <div class="relative h-full flex items-end">
+        <!-- Container -->
+        <div class="relative h-full max-w-7xl mx-auto px-6">
 
-            <div class="max-w-7xl mx-auto px-6 w-full pb-12 flex justify-between items-end">
+            <!-- TEXT -->
+            <div class="text-white max-w-xl pt-14 md:absolute md:bottom-12">
 
-                <!-- Text -->
-                <div class="text-white max-w-xl">
+                <h2 class="text-3xl md:text-4xl font-light mb-3">
+                    Gallery
+                </h2>
 
-                    <h2 class="text-4xl font-light mb-3">Gallery</h2>
+                <p class="text-white/90 leading-relaxed">
+                    Browse through our <strong>gallery and explore</strong> the wonderful moments
+                    from MAGH events, celebrations, and community activities.
+                </p>
 
-                    <p class="text-white/90 leading-relaxed">
-                        Browse through our <strong>gallery and explore</strong> the wonderful moments
-                        from MAGH events, celebrations, and community activities.
-                        Each photo reflects the unity, culture, and joyful memories shared by our members.
-                    </p>
+            </div>
 
-                </div>
+            <!-- BUTTONS -->
+            <div class="absolute bottom-6 right-6 md:bottom-12 bg-white rounded-full flex items-center p-1 shadow-md">
 
-                <!-- Navigation Buttons -->
-                <div class="bg-white rounded-full flex items-center p-1 shadow-md">
+                <button onclick="prevSlide()" class="w-12 h-12 flex items-center justify-center text-gray-500">
+                    <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                </button>
 
-                    <!-- Left Button -->
-                    <button onclick="prevSlide()" class="w-12 h-12 flex items-center justify-center text-gray-500">
-
-                        <i data-lucide="arrow-left" class="w-5 h-5"></i>
-
-                    </button>
-
-                    <!-- Right Button -->
-                    <button onclick="nextSlide()"
-                        class="w-12 h-12 rounded-full bg-green-600 flex items-center justify-center text-white">
-
-                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
-
-                    </button>
-
-                </div>
+                <button onclick="nextSlide()"
+                    class="w-12 h-12 rounded-full bg-green-600 flex items-center justify-center text-white">
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </button>
 
             </div>
 
         </div>
 
     </section>
+
+
     <script>
 
-        let currentSlide = 0
+        const images = [
+            "/Assets/Sea.jpg",
+            "/Assets/Park.jpg",
+            "/Assets/Onam.jpg",
+            "/Assets/America.jpg",
+        ];
 
-        const slides = document.querySelectorAll(".slide")
+        let currentSlide = 0;
+
+        const bg = document.getElementById("galleryBg");
 
         function showSlide(index) {
-
-            slides.forEach((slide, i) => {
-
-                slide.style.opacity = i === index ? "1" : "0"
-
-            })
-
+            bg.style.backgroundImage = `url(${images[index]})`;
         }
 
         function nextSlide() {
 
-            currentSlide++
+            currentSlide++;
 
-            if (currentSlide >= slides.length) {
-                currentSlide = 0
+            if (currentSlide >= images.length) {
+                currentSlide = 0;
             }
 
-            showSlide(currentSlide)
+            showSlide(currentSlide);
 
         }
 
         function prevSlide() {
 
-            currentSlide--
+            currentSlide--;
 
             if (currentSlide < 0) {
-                currentSlide = slides.length - 1
+                currentSlide = images.length - 1;
             }
 
-            showSlide(currentSlide)
+            showSlide(currentSlide);
 
         }
 
     </script>
 
     <!-- EVENTS SECTION -->
-    <section class=" py-10">
+    <section class="fade-section py-10">
 
         <div class="max-w-7xl mx-auto px-6">
 
             <!-- Heading -->
-            <h3 class="text-4xl md:text-4xl font-light text-gray-900 mb-2">
+            <h3 class="text-3xl md:text-4xl font-light text-gray-900 mb-2">
                 Discover the <span class="font-bold">Events</span>
             </h3>
 
@@ -686,7 +703,7 @@
     </section>
 
     <!-- CONTACT SECTION -->
-    <section class=" py-20">
+    <section class="fade-section py-20">
 
         <div class="max-w-7xl mx-auto px-6">
 
@@ -695,7 +712,7 @@
                 <!-- Left Side (40%) -->
                 <div class="md:col-span-2">
 
-                    <h2 class="text-4xl font-light mb-6">Get In Touch</h2>
+                    <h2 class="text-3xl font-light mb-6">Get In <span class="font-bold">Touch</span> </h2>
 
                     <p class="text-gray-600 mb-10 max-w-md">
                         Have a question or want to get involved with our community? Reach out to the
@@ -757,8 +774,6 @@
     </section>
 
 
-
-
     <footer class="text-white pt-16 pb-8 bg-cover bg-center relative"
         style="background-image:url('/Assets/Gradient.jpg');">
 
@@ -815,9 +830,7 @@
                     <div>
 
                         <h4 class="font-semibold mb-4">Resources</h4>
-
                         <ul class="space-y-3 text-white/80 text-sm">
-
                             <li><a href="#" class="hover:text-white">MAGH Board</a></li>
                             <li><a href="#" class="hover:text-white">Payments</a></li>
                             <li><a href="#" class="hover:text-white">Video Wall</a></li>
@@ -871,9 +884,12 @@ flex flex-col md:flex-row items-center justify-between gap-6">
                 <div class="flex items-center gap-3">
 
                     <!-- Location Icon -->
-                    <div class="bg-white/20 backdrop-blur w-12 h-12 rounded-full flex items-center justify-center">
+                    <a href="https://maps.google.com" target="_blank"
+                        class="bg-white/20 backdrop-blur w-12 h-12 rounded-full flex items-center justify-center hover:bg-white/40 transition">
+
                         <i data-lucide="map-pin" class="w-5 h-5"></i>
-                    </div>
+
+                    </a>
 
                     <!-- Social Icons -->
                     <div class="bg-white/20 backdrop-blur px-6 py-3 rounded-full flex items-center gap-6 text-lg">
@@ -903,6 +919,9 @@ flex flex-col md:flex-row items-center justify-between gap-6">
         </div>
 
     </footer>
+
+
+
 
 
 
@@ -944,6 +963,32 @@ flex flex-col md:flex-row items-center justify-between gap-6">
             }
 
         })
+
+    </script>
+
+    <script>
+
+        const sections = document.querySelectorAll(".fade-section");
+
+        const observer = new IntersectionObserver((entries) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("show");
+
+                }
+
+            });
+
+        }, {
+            threshold: 0.2
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
 
     </script>
 

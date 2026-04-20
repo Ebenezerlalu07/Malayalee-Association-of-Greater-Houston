@@ -22,3 +22,38 @@ body {
 .philosopher {
     font-family: 'Philosopher', serif;
 }
+
+
+.cursor::after {
+    content: "|";
+    animation: blink 1s infinite;
+    margin-left: 4px;
+}
+
+@keyframes blink {
+
+    0%,
+    50%,
+    100% {
+        opacity: 1;
+    }
+
+    25%,
+    75% {
+        opacity: 0;
+    }
+}
+
+
+/* fade animation */
+
+.fade-section {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.fade-section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
