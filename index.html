@@ -110,7 +110,6 @@
 
 
                 <!-- Mobile Button -->
-
                 <button id="menuBtn" class="md:hidden">
 
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24"
@@ -1016,7 +1015,57 @@ flex flex-col md:flex-row items-center justify-between gap-6">
 
     </script>
 
+    <script>
+
+        window.addEventListener("load", function () {
+
+            const loader = document.getElementById("pageLoader");
+
+            loader.style.opacity = "0";
+            loader.style.transition = "opacity 0.4s ease";
+
+            setTimeout(() => {
+
+                loader.style.display = "none";
+
+            }, 400);
+
+        });
+
+    </script>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+    <script>
+
+        window.addEventListener("load", function () {
+
+            const loader = document.getElementById("pageLoader");
+
+            loader.style.transition = "opacity 0.4s ease";
+            loader.style.opacity = "0";
+
+            setTimeout(function () {
+                loader.style.display = "none";
+            }, 400);
+
+        });
+
+    </script>
 
 </body>
+
+<!-- PAGE LOADER -->
+<div id="pageLoader" class="fixed inset-0 bg-white flex items-center justify-center z-[9999]">
+
+    <i data-lucide="loader" class="w-12 h-12 text-gray-400 animate-spin"></i>
+
+</div>
 
 </html>
