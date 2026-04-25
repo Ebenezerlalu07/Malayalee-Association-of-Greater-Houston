@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Malayalee Association of Greater Houston</title>
+    <link rel="icon" type="image/x-icon" href="/Assets/Logo.avif">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+</head>
+
+<body class="bg-white">
+
+
+    <!-- NAVBAR -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
+
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="flex justify-between items-center h-20">
+
+                <!-- Logo -->
+                <a href="/index.html">
+                    <img src="/Assets/Logo.avif" class="h-14" alt="Logo">
+                </a>
+
+
+                <!-- Desktop Menu -->
+
+                <div class="hidden md:flex items-center space-x-7 font-medium text-gray-800">
+
+                    <a href="/index.html" class="  hover:text-green-600">
+                        Home
+                    </a>
+
+                    <a href="/Pages/about.html" class="hover:text-green-600 ">About Us</a>
+
+
+                    <!-- EVENTS DROPDOWN -->
+
+                    <div class="relative">
+
+                        <button onclick="toggleMenu('eventsMenu')" class="flex items-center gap-1 hover:text-green-600">
+
+                            Events
+
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+
+                        </button>
+
+                        <div id="eventsMenu"
+                            class="hidden absolute left-0 top-full mt-2 bg-white shadow-lg rounded-lg w-56 py-2">
+
+                            <a href="/Events/upcoming events.html" class="block px-5 py-3 hover:bg-gray-100">Upcoming
+                                Events</a>
+                            <a href="/Events/previous events.html" class="block px-5 py-3 hover:bg-gray-100">Previous
+                                Events</a>
+                            <a href="/Events/community events.html" class="block px-5 py-3 hover:bg-gray-100">Community
+                                Events</a>
+
+                        </div>
+
+                    </div>
+
+
+                    <a href="/Pages/gallery.html" class="hover:text-green-600">Gallery</a>
+                    <a href="/Pages/malayalam class.html" class="hover:text-green-600">Malayalam Class</a>
+                    <a href="/Pages/bod.html" class="hover:text-green-600">MAGH BOD</a>
+
+
+                    <!-- PAYMENTS DROPDOWN -->
+
+                    <div class="relative">
+
+                        <button onclick="toggleMenu('paymentsMenu')"
+                            class="flex items-center gap-1 bg-green-600 text-white px-5 py-2 rounded-full">
+
+                            Payments
+
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+
+                        </button>
+
+                        <div id="paymentsMenu"
+                            class="hidden absolute left-0 top-full mt-2 bg-white shadow-lg rounded-lg w-56 py-2">
+
+                            <a href="/payments/join magh.html" class="block px-5 py-3 hover:bg-gray-100">Join MAGH</a>
+                            <a href="#" class="block px-5 py-3 hover:bg-gray-100">Online Payments</a>
+
+                        </div>
+
+                    </div>
+
+                    <a href="/Pages/video wall.html" class="hover:text-green-600">Video Wall</a>
+                    <a href="/Pages/contact.html" class="hover:text-green-600">Contact</a>
+
+                </div>
+
+
+                <!-- Mobile Button -->
+                <button id="menuBtn" class="md:hidden">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+
+                    </svg>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- MOBILE MENU -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+
+            <div class="px-6 py-4 space-y-2 text-gray-800 font-medium">
+
+                <a href="/index.html" class="  block px-4 py-3 hover:bg-gray-100 rounded-lg">
+                    Home
+                </a>
+
+                <a href="/Pages/about.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">
+                    About Us
+                </a>
+
+                <!-- MOBILE EVENTS -->
+                <div>
+
+                    <button onclick="toggleMenu('mobileEvents')"
+                        class="flex justify-between items-center w-full px-4 py-3 hover:bg-gray-100 rounded-lg">
+
+                        Events
+                        <i data-lucide="chevron-down" class="w-4 h-4"></i>
+
+                    </button>
+
+                    <div id="mobileEvents" class="hidden pl-6 pb-2 space-y-2">
+
+                        <a href="/Events/upcoming events.html" class="block py-2 text-gray-600">Upcoming Events</a>
+                        <a href="/Events/previous events.html" class="block py-2 text-gray-600">Previous Events</a>
+                        <a href="/Events/community events.html" class="block py-2 text-gray-600">Community Events</a>
+
+                    </div>
+
+                </div>
+
+                <a href="/Pages/gallery.html" class=" block px-4 py-3 hover:bg-gray-100 rounded-lg ">
+                    Gallery
+                </a>
+
+                <a href="/Pages/malayalam class.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">
+                    Malayalam Class
+                </a>
+
+                <a href="/Pages/bod.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">
+                    MAGH BOD
+                </a>
+
+                <!-- MOBILE PAYMENTS -->
+                <div>
+
+                    <button onclick="toggleMenu('mobilePayments')"
+                        class="flex justify-between items-center w-full px-4 py-3  rounded-lg  block bg-green-600 text-white px-4 py-3 rounded-lg">
+
+                        Payments
+                        <i data-lucide="chevron-down" class="w-4 h-4"></i>
+
+                    </button>
+
+                    <div id="mobilePayments" class="hidden pl-6 pb-2 space-y-2">
+
+                        <a href="/payments/join magh.html" class="block py-2 text-gray-600">Join MAGH</a>
+                        <a href="#" class="block py-2 text-gray-600">Online Payments</a>
+
+                    </div>
+
+                </div>
+
+                <a href="/Pages/video wall.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">
+                    Video Wall
+                </a>
+
+                <a href="/Pages/contact.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg  ">
+                    Contact
+                </a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <script>
+
+        let lastScroll = 0;
+        const navbar = document.getElementById("navbar");
+
+        window.addEventListener("scroll", () => {
+
+            let currentScroll = window.pageYOffset;
+
+            if (currentScroll > lastScroll) {
+
+                navbar.classList.remove("nav-show");
+                navbar.classList.add("nav-hide");
+
+            } else {
+
+                navbar.classList.remove("nav-hide");
+                navbar.classList.add("nav-show");
+
+            }
+
+            lastScroll = currentScroll;
+
+        });
+
+    </script>
+
+
+
+    <!--BANNER -->
+    <section class="relative w-full h-[220px] sm:h-[260px] md:h-[300px] mt-20 overflow-hidden">
+
+        <!-- Background Image -->
+        <img src="/Assets/evening.jpg" alt="About MAGH" class="absolute inset-0 w-full h-full object-cover">
+
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/30"></div>
+
+        <!-- Center Text -->
+        <div class="relative h-full flex items-center justify-center">
+
+            <h3 class="text-3xl md:text-4xl text-white mb-6">
+                Online Payment<span class="font-bold">Us</span>
+            </h3>
+
+        </div>
+
+    </section>
+
+
+
+
+    <section class="bg-gray-100 py-16">
+        <div class="max-w-7xl mx-auto px-6 space-y-12">
+
+
+
+
+            <!-- In Person -->
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+
+                <div>
+                    <!-- Label -->
+                    <div
+                        class="inline-flex items-center bg-[#79F200]/20 text-[#1C8E00] text-sm font-medium px-4 py-1 rounded-full">
+                        <span class="w-2 h-2 bg-[#1C8E00] rounded-full mr-2"></span>
+                        Get in Touch
+                    </div><br><br>
+                    <h3 class="text-3xl font-semibold mb-3">In Person</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Download the form by clicking the link below, print out and fill the form,
+                        write the check in the name of "MAGH" and hand over the form and check
+                        to any MAGH BOD member.
+                    </p>
+                </div>
+
+                <div class="md:text-right">
+                    <a href="/Assets/MEMBERSHIP FORM.pdf"
+                        class="inline-block bg-green-500 hover:bg-green-600 text-white px-10 py-4 rounded-full font-medium transition">
+                        Download Form
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Online -->
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+
+                <div>
+                    <h3 class="text-3xl font-semibold mb-3">Online</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Click the link below to fill the form online and make the payment online
+                        to submit your Life Membership application.
+                        <br>
+                        <span class="text-gray-600">
+                            Note: There is a $7 processing fee charged for online payment.
+                        </span>
+                    </p>
+                </div>
+
+                <div class="md:text-right">
+                    <a href="#"
+                        class="inline-block bg-green-500 hover:bg-green-600 text-white px-10 py-4 rounded-full font-medium transition">
+                        Get Online Form
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- QR Code -->
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+
+                <div>
+                    <h3 class="text-3xl font-semibold mb-3">QR Code</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Scan the QR Code below to download Membership form, fill the form
+                        and email to
+                        <a href="mailto:secretary@maghusa.org" class="underline">
+                            secretary@maghusa.org
+                        </a>
+                        and Zelle the membership amount using email
+                        <a href="mailto:treasurer@maghusa.org" class="underline">
+                            treasurer@maghusa.org
+                        </a>.
+                    </p>
+                </div>
+
+                <div class="md:text-right">
+                    <img src="/Assets/QR Code.png" class="w-40 inline-block" alt="QR Code">
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+
+    <footer class="text-white pt-16 pb-8 bg-cover bg-center relative"
+        style="background-image:url('/Assets/Gradient.jpg');">
+
+        <div class="relative max-w-7xl mx-auto px-6">
+
+            <!-- Top Footer -->
+            <div class="grid lg:grid-cols-2 gap-12">
+
+                <!-- Left: Logo + Description -->
+                <div>
+
+                    <div class="flex items-center gap-4 mb-4">
+
+                        <img src="/Assets/Logo.avif" class="w-14">
+
+                        <h3 class="text-xl font-semibold leading-tight">
+                            Malayalee Association<br>
+                            of Greater Houston
+                        </h3>
+
+                    </div>
+
+                    <p class="text-white/80 text-sm leading-relaxed max-w-xl">
+                        MAGH is committed to preserving and promoting Kerala’s cultural heritage while
+                        building a strong and vibrant Malayalee community in Greater Houston through
+                        meaningful events, programs, and community initiatives.
+                    </p>
+
+                </div>
+
+
+                <!-- Right Links -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-10">
+
+                    <!-- Quick Links -->
+                    <div>
+
+                        <h4 class="font-semibold mb-4">Quick Links</h4>
+
+                        <ul class="space-y-3 text-white/80 text-sm">
+
+                            <li><a href="/index.html" class="hover:text-white">Home</a></li>
+                            <li><a href="/Pages/about.html" class="hover:text-white">About</a></li>
+                            <li><a href="/Events/community events.html" class="hover:text-white">Events</a></li>
+                            <li><a href="/Pages/gallery.html" class="hover:text-white">Gallery</a></li>
+                            <li><a href="/Pages/malayalam class.html" class="hover:text-white">Malayalam Class</a></li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <!-- Resources -->
+                    <div>
+
+                        <h4 class="font-semibold mb-4">Resources</h4>
+                        <ul class="space-y-3 text-white/80 text-sm">
+                            <li><a href="/Pages/bod.html" class="hover:text-white">MAGH Board</a></li>
+                            <li><a href="/payments/join magh.html" class="hover:text-white">Payments</a></li>
+                            <li><a href="/Pages/video wall.html" class="hover:text-white">Video Wall</a></li>
+                            <li><a href="/Pages/contact.html" class="hover:text-white">Contact</a></li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <!-- Contact -->
+                    <div>
+
+                        <h4 class="font-semibold mb-4">Contact Us</h4>
+
+                        <div class="space-y-3 text-white/80 text-sm">
+
+                            <p>
+                                1415 Packer Ln, Stafford,<br>
+                                TX 77477, USA
+                            </p>
+
+                            <p class="underline">
+                                secretary@maghusa.org
+                            </p>
+
+                            <p>
+                                713-515-8432
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-white/20 mt-12 pt-6
+flex flex-col md:flex-row items-center justify-between gap-6">
+
+                <!-- Copyright -->
+                <p class="text-white/80 text-sm text-center md:text-left">
+                    ©2026 by Malayalee Association of Greater Houston (MAGH)
+                </p>
+
+
+                <!-- Social Section -->
+                <div class="flex items-center gap-3">
+
+                    <!-- Location Icon -->
+                    <a href="/Pages/contact.html"
+                        class="bg-white/20 backdrop-blur w-12 h-12 rounded-full flex items-center justify-center hover:bg-white/40 transition">
+
+                        <i data-lucide="map-pin" class="w-5 h-5"></i>
+
+                    </a>
+
+                    <!-- Social Icons -->
+                    <div class="bg-white/20 backdrop-blur px-6 py-3 rounded-full flex items-center gap-6 text-lg">
+
+                        <a href="https://www.instagram.com/maghcommunication" class="hover:scale-110 transition">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+
+                        <a href="https://www.facebook.com/maghcommunication" class="hover:scale-110 transition">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+
+
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+
+    <script>
+
+        const menuBtn = document.getElementById("menuBtn")
+        const mobileMenu = document.getElementById("mobileMenu")
+
+        menuBtn.onclick = () => {
+            mobileMenu.classList.toggle("hidden")
+        }
+
+
+        function toggleMenu(menuId) {
+
+            const menus = ["eventsMenu", "paymentsMenu", "mobileEvents", "mobilePayments"]
+
+            menus.forEach(id => {
+                if (id !== menuId) {
+                    document.getElementById(id)?.classList.add("hidden")
+                }
+            })
+
+            document.getElementById(menuId).classList.toggle("hidden")
+
+        }
+
+
+        document.addEventListener("click", function (e) {
+
+            if (!e.target.closest(".relative")) {
+                document.getElementById("eventsMenu")?.classList.add("hidden")
+                document.getElementById("paymentsMenu")?.classList.add("hidden")
+            }
+
+        })
+
+    </script>
+
+    <script>
+
+        const sections = document.querySelectorAll(".fade-section");
+
+        const observer = new IntersectionObserver((entries) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("show");
+
+                }
+
+            });
+
+        }, {
+            threshold: 0.2
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+    </script>
+
+    <script>
+
+        window.addEventListener("load", function () {
+
+            const loader = document.getElementById("pageLoader");
+
+            loader.style.opacity = "0";
+            loader.style.transition = "opacity 0.4s ease";
+
+            setTimeout(() => {
+
+                loader.style.display = "none";
+
+            }, 400);
+
+        });
+
+    </script>
+
+
+
+
+</body>
+
+</html>
