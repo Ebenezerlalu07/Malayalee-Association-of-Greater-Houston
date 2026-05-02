@@ -211,30 +211,31 @@
     </nav>
 
     <script>
-
         let lastScroll = 0;
         const navbar = document.getElementById("navbar");
 
         window.addEventListener("scroll", () => {
 
-            let currentScroll = window.pageYOffset;
+            const currentScroll = window.scrollY; // ✅ Safari safe
 
+            // ✅ Always show navbar at top
+            if (currentScroll <= 0) {
+                navbar.style.transform = "translateY(0)";
+                return;
+            }
+
+            // ✅ Scroll Down → Hide
             if (currentScroll > lastScroll) {
-
-                navbar.classList.remove("nav-show");
-                navbar.classList.add("nav-hide");
-
-            } else {
-
-                navbar.classList.remove("nav-hide");
-                navbar.classList.add("nav-show");
-
+                navbar.style.transform = "translateY(-100%)";
+            }
+            // ✅ Scroll Up → Show
+            else {
+                navbar.style.transform = "translateY(0)";
             }
 
             lastScroll = currentScroll;
 
         });
-
     </script>
 
 
@@ -302,7 +303,7 @@
 
                     <div class="hidden sm:flex flex-col sm:flex-row gap-4">
 
-                        <a href="/Pages/about.html"
+                        <a href="/payments/join magh.html"
                             class="bg-green-500 hover:bg-green-600 px-6 py-3 rounded-full font-medium text-center">
                             Join Now
                         </a>
@@ -338,9 +339,9 @@
 
                     <div class="flex -space-x-3">
 
-                        <img src="/Assets/JOSE K. JOHN.avif" class="w-12 h-12 rounded-full border-2 border-white">
-                        <img src="/Assets/RAJESH VARGHESE.avif" class="w-12 h-12 rounded-full border-2 border-white">
-                        <img src="/Assets/SUJITH CHACKO.avif" class="w-12 h-12 rounded-full border-2 border-white">
+                        <img src="/Assets/Jeevan simon.jpeg" class="w-12 h-12 rounded-full border-2 border-white">
+                        <img src="/Assets/Ambili Antony.jpeg" class="w-12 h-12 rounded-full border-2 border-white">
+                        <img src="/Assets/Michael joy.jpeg" class="w-12 h-12 rounded-full border-2 border-white">
 
                     </div>
 

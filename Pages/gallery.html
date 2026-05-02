@@ -202,30 +202,31 @@
     </nav>
 
     <script>
-
         let lastScroll = 0;
         const navbar = document.getElementById("navbar");
 
         window.addEventListener("scroll", () => {
 
-            let currentScroll = window.pageYOffset;
+            const currentScroll = window.scrollY; // ✅ Safari safe
 
+            // ✅ Always show navbar at top
+            if (currentScroll <= 0) {
+                navbar.style.transform = "translateY(0)";
+                return;
+            }
+
+            // ✅ Scroll Down → Hide
             if (currentScroll > lastScroll) {
-
-                navbar.classList.remove("nav-show");
-                navbar.classList.add("nav-hide");
-
-            } else {
-
-                navbar.classList.remove("nav-hide");
-                navbar.classList.add("nav-show");
-
+                navbar.style.transform = "translateY(-100%)";
+            }
+            // ✅ Scroll Up → Show
+            else {
+                navbar.style.transform = "translateY(0)";
             }
 
             lastScroll = currentScroll;
 
         });
-
     </script>
 
 

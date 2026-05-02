@@ -48,13 +48,18 @@
                     <div class="relative">
                         <button onclick="toggleMenu('eventsMenu')" class="flex items-center gap-1 hover:text-green-600">
                             Events
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
                             </svg>
                         </button>
-                        <div id="eventsMenu" class="hidden absolute left-0 top-full mt-2 bg-white shadow-lg rounded-lg w-56 py-2">
-                            <a href="/Events/upcoming events.html" class="block px-5 py-3 hover:bg-gray-100">Upcoming Events</a>
-                            <a href="/Events/previous events.html" class="block px-5 py-3 hover:bg-gray-100">Previous Events</a>
+                        <div id="eventsMenu"
+                            class="hidden absolute left-0 top-full mt-2 bg-white shadow-lg rounded-lg w-56 py-2">
+                            <a href="/Events/upcoming events.html" class="block px-5 py-3 hover:bg-gray-100">Upcoming
+                                Events</a>
+                            <a href="/Events/previous events.html" class="block px-5 py-3 hover:bg-gray-100">Previous
+                                Events</a>
                             <a href="#" class="block px-5 py-3 hover:bg-gray-100">Community Events</a>
                         </div>
                     </div>
@@ -67,8 +72,10 @@
                     <a href="/Pages/contact.html" class="hover:text-green-600">Contact</a>
                 </div>
                 <button id="menuBtn" class="md:hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                 </button>
             </div>
@@ -80,7 +87,8 @@
                 <a href="#" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">Home</a>
                 <a href="#" class="block bg-green-600 text-white px-4 py-3 rounded-lg">About Us</a>
                 <div>
-                    <button onclick="toggleMenu('mobileEvents')" class="flex justify-between items-center w-full px-4 py-3 hover:bg-gray-100 rounded-lg">
+                    <button onclick="toggleMenu('mobileEvents')"
+                        class="flex justify-between items-center w-full px-4 py-3 hover:bg-gray-100 rounded-lg">
                         Events
                         <i data-lucide="chevron-down" class="w-4 h-4"></i>
                     </button>
@@ -91,7 +99,8 @@
                     </div>
                 </div>
                 <a href="/Pages/gallery.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">Gallery</a>
-                <a href="/Pages/malayalam class.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">Malayalam Class</a>
+                <a href="/Pages/malayalam class.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">Malayalam
+                    Class</a>
                 <a href="/Pages/bod.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">MAGH BOD</a>
                 <a href="/payments/join magh.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">Membership</a>
                 <a href="/Pages/sponsership.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">Sponsorship</a>
@@ -104,16 +113,28 @@
     <script>
         let lastScroll = 0;
         const navbar = document.getElementById("navbar");
+
         window.addEventListener("scroll", () => {
-            let currentScroll = window.pageYOffset;
-            if (currentScroll > lastScroll) {
-                navbar.classList.remove("nav-show");
-                navbar.classList.add("nav-hide");
-            } else {
-                navbar.classList.remove("nav-hide");
-                navbar.classList.add("nav-show");
+
+            const currentScroll = window.scrollY; // ✅ Safari safe
+
+            // ✅ Always show navbar at top
+            if (currentScroll <= 0) {
+                navbar.style.transform = "translateY(0)";
+                return;
             }
+
+            // ✅ Scroll Down → Hide
+            if (currentScroll > lastScroll) {
+                navbar.style.transform = "translateY(-100%)";
+            }
+            // ✅ Scroll Up → Show
+            else {
+                navbar.style.transform = "translateY(0)";
+            }
+
             lastScroll = currentScroll;
+
         });
     </script>
 
@@ -148,7 +169,8 @@
                 </p><br>
 
                 <!-- Label -->
-                <div class="inline-flex items-center bg-[#79F200]/20 text-[#1C8E00] text-sm font-medium px-4 py-1 rounded-full mb-4">
+                <div
+                    class="inline-flex items-center bg-[#79F200]/20 text-[#1C8E00] text-sm font-medium px-4 py-1 rounded-full mb-4">
                     <span class="w-2 h-2 bg-[#1C8E00] rounded-full mr-2"></span>
                     Early Years &amp; Formation
                 </div><br>
@@ -162,26 +184,38 @@
                 </p><br>
 
                 <!-- Label -->
-                <div class="inline-flex items-center bg-[#79F200]/20 text-[#1C8E00] text-sm font-medium px-4 py-1 rounded-full mb-4">
+                <div
+                    class="inline-flex items-center bg-[#79F200]/20 text-[#1C8E00] text-sm font-medium px-4 py-1 rounded-full mb-4">
                     <span class="w-2 h-2 bg-[#1C8E00] rounded-full mr-2"></span>
                     Growth &amp; Activities
                 </div><br>
 
                 <p class="text-black leading-relaxed">
-                    Over the years, MAGH expanded significantly, offering a wide range of programs and initiatives, including:
+                    Over the years, MAGH expanded significantly, offering a wide range of programs and initiatives,
+                    including:
                 </p>
                 <ul class="list-none mt-2 mb-4 space-y-2">
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Cultural programs and stage performances</li>
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Onam and other traditional festival celebrations</li>
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Sports tournaments and recreational activities</li>
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Community service and charity initiatives</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
+                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Cultural programs and
+                        stage performances</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
+                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Onam and other
+                        traditional festival celebrations</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
+                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Sports tournaments and
+                        recreational activities</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
+                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Community service and
+                        charity initiatives</li>
                 </ul>
                 <p class="text-black leading-relaxed">
-                    With steadily increasing membership, MAGH evolved into a central hub for the Malayalee community in Houston.
+                    With steadily increasing membership, MAGH evolved into a central hub for the Malayalee community in
+                    Houston.
                 </p><br>
 
                 <!-- Label -->
-                <div class="inline-flex items-center bg-[#79F200]/20 text-[#1C8E00] text-sm font-medium px-4 py-1 rounded-full mb-4">
+                <div
+                    class="inline-flex items-center bg-[#79F200]/20 text-[#1C8E00] text-sm font-medium px-4 py-1 rounded-full mb-4">
                     <span class="w-2 h-2 bg-[#1C8E00] rounded-full mr-2"></span>
                     Leadership &amp; Contributions
                 </div><br>
@@ -190,13 +224,20 @@
                     The success of MAGH is deeply rooted in the dedication of its leaders and volunteers.
                 </p>
                 <ul class="list-none mt-2 mb-4 space-y-2">
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Successive leadership teams ensured strong governance through elected committees</li>
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Volunteers contributed selflessly toward the growth and sustainability of the organization</li>
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Numerous individuals played pivotal roles in building a strong and lasting foundation</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
+                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Successive leadership
+                        teams ensured strong governance through elected committees</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
+                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Volunteers contributed
+                        selflessly toward the growth and sustainability of the organization</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
+                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Numerous individuals
+                        played pivotal roles in building a strong and lasting foundation</li>
                 </ul><br>
 
                 <!-- Label -->
-                <div class="inline-flex items-center bg-[#79F200]/20 text-[#1C8E00] text-sm font-medium px-4 py-1 rounded-full mb-4">
+                <div
+                    class="inline-flex items-center bg-[#79F200]/20 text-[#1C8E00] text-sm font-medium px-4 py-1 rounded-full mb-4">
                     <span class="w-2 h-2 bg-[#1C8E00] rounded-full mr-2"></span>
                     Major Milestones
                 </div><br>
@@ -205,17 +246,25 @@
                     MAGH has consistently delivered impactful and memorable events, including:
                 </p>
                 <ul class="list-none mt-2 mb-4 space-y-2">
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Grand Onam celebrations</li>
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Arts and cultural programs</li>
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Sports tournaments and community gatherings</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
+                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Grand Onam celebrations
+                    </li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
+                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Arts and cultural
+                        programs</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
+                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Sports tournaments and
+                        community gatherings</li>
                 </ul>
                 <p class="text-black leading-relaxed">
-                    The organization has earned recognition for actively promoting Malayalam language, arts, and heritage,
+                    The organization has earned recognition for actively promoting Malayalam language, arts, and
+                    heritage,
                     while also engaging in charitable and community welfare initiatives.
                 </p><br>
 
                 <!-- Label -->
-                <div class="inline-flex items-center bg-[#79F200]/20 text-[#1C8E00] text-sm font-medium px-4 py-1 rounded-full mb-4">
+                <div
+                    class="inline-flex items-center bg-[#79F200]/20 text-[#1C8E00] text-sm font-medium px-4 py-1 rounded-full mb-4">
                     <span class="w-2 h-2 bg-[#1C8E00] rounded-full mr-2"></span>
                     Community Impact
                 </div><br>
@@ -224,13 +273,20 @@
                     MAGH has played a vital role in strengthening the Malayalee diaspora by serving as:
                 </p>
                 <ul class="list-none mt-2 mb-4 space-y-2">
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>A cultural bridge for second-generation Malayalees</li>
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>A support system for new immigrants</li>
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>A platform for unity, identity, and belonging</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
+                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>A cultural bridge for
+                        second-generation Malayalees</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
+                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>A support system for new
+                        immigrants</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
+                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>A platform for unity,
+                        identity, and belonging</li>
                 </ul><br>
 
                 <!-- Label -->
-                <div class="inline-flex items-center bg-[#79F200]/20 text-[#1C8E00] text-sm font-medium px-4 py-1 rounded-full mb-4">
+                <div
+                    class="inline-flex items-center bg-[#79F200]/20 text-[#1C8E00] text-sm font-medium px-4 py-1 rounded-full mb-4">
                     <span class="w-2 h-2 bg-[#1C8E00] rounded-full mr-2"></span>
                     Recent Years &amp; Continued Progress
                 </div><br>
@@ -239,9 +295,15 @@
                     Adapting to changing times, MAGH continues to grow with:
                 </p>
                 <ul class="list-none mt-2 mb-4 space-y-2">
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Innovative programs and events</li>
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Increased youth engagement and leadership opportunities</li>
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Educational, cultural, and social initiatives</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
+                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Innovative programs and
+                        events</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
+                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Increased youth
+                        engagement and leadership opportunities</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
+                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Educational, cultural,
+                        and social initiatives</li>
                 </ul>
                 <p class="text-black leading-relaxed">
                     Today, MAGH stands as one of the largest Malayalee associations in the United States,
@@ -251,14 +313,23 @@
                     The organization also boasts significant infrastructure:
                 </p>
                 <ul class="list-none mt-2 mb-4 space-y-2">
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>1.82 acres of owned property, with plans to expand by an additional 1.5 acres</li>
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Kerala House (Main Hall) – accommodating up to 200 people</li>
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Recreational Center – a multi-purpose facility, widely used for badminton and indoor activities</li>
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Cricket batting cage and pitch, supporting the growing interest in cricket within the community</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
+                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>1.82 acres of owned
+                        property, with plans to expand by an additional 1.5 acres</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
+                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Kerala House (Main Hall)
+                        – accommodating up to 200 people</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
+                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Recreational Center – a
+                        multi-purpose facility, widely used for badminton and indoor activities</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
+                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Cricket batting cage and
+                        pitch, supporting the growing interest in cricket within the community</li>
                 </ul><br>
 
                 <!-- Label -->
-                <div class="inline-flex items-center bg-[#79F200]/20 text-[#1C8E00] text-sm font-medium px-4 py-1 rounded-full mb-4">
+                <div
+                    class="inline-flex items-center bg-[#79F200]/20 text-[#1C8E00] text-sm font-medium px-4 py-1 rounded-full mb-4">
                     <span class="w-2 h-2 bg-[#1C8E00] rounded-full mr-2"></span>
                     Conclusion
                 </div><br>
@@ -267,12 +338,16 @@
                     MAGH stands today as a proud symbol of:
                 </p>
                 <ul class="list-none mt-2 mb-4 space-y-2">
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Unity</li>
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Cultural Pride</li>
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Community Strength</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
+                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Unity</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
+                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Cultural Pride</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
+                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Community Strength</li>
                 </ul>
                 <p class="text-black leading-relaxed">
-                    Its remarkable journey—from small informal gatherings to a thriving, influential organization—reflects
+                    Its remarkable journey—from small informal gatherings to a thriving, influential
+                    organization—reflects
                     the vision, dedication, and collective spirit of the Houston Malayalee community.
                 </p><br>
 
@@ -411,7 +486,8 @@
                     </div>
                 </div>
             </div>
-            <div class="border-t border-white/20 mt-12 pt-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div
+                class="border-t border-white/20 mt-12 pt-6 flex flex-col md:flex-row items-center justify-between gap-6">
                 <p class="text-white/80 text-sm text-center md:text-left">
                     ©2026 by Malayalee Association of Greater Houston (MAGH)
                 </p>

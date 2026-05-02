@@ -202,30 +202,31 @@
     </nav>
 
     <script>
-
         let lastScroll = 0;
         const navbar = document.getElementById("navbar");
 
         window.addEventListener("scroll", () => {
 
-            let currentScroll = window.pageYOffset;
+            const currentScroll = window.scrollY; // ✅ Safari safe
 
+            // ✅ Always show navbar at top
+            if (currentScroll <= 0) {
+                navbar.style.transform = "translateY(0)";
+                return;
+            }
+
+            // ✅ Scroll Down → Hide
             if (currentScroll > lastScroll) {
-
-                navbar.classList.remove("nav-show");
-                navbar.classList.add("nav-hide");
-
-            } else {
-
-                navbar.classList.remove("nav-hide");
-                navbar.classList.add("nav-show");
-
+                navbar.style.transform = "translateY(-100%)";
+            }
+            // ✅ Scroll Up → Show
+            else {
+                navbar.style.transform = "translateY(0)";
             }
 
             lastScroll = currentScroll;
 
         });
-
     </script>
 
 
@@ -326,236 +327,56 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
 
-
-                <div
-                    class="bg-gradient-to-br from-[rgba(121,242,0,0.2)] to-white rounded-2xl p-5 shadow-[0_6px_18px_rgba(0,0,0,0.08)] hover:-translate-y-1 hover:shadow-lg transition duration-300">
-
-                    <img src="/Assets/JOSE K. JOHN.avif"
-                        class="w-full h-[260px] md:h-[300px] lg:h-[320px] object-cover rounded-xl mb-4">
-
-                    <h3 class="text-gray-900 font-semibold tracking-wide text-sm">
-                        JOSE K. JOHN
-                    </h3>
-
-                    <p class="text-gray-500 text-sm">
-                        President
-                    </p>
-
-                </div>
-
-
-
-                <div
-                    class="bg-gradient-to-br from-[rgba(121,242,0,0.2)] to-white rounded-2xl p-5 shadow-[0_6px_18px_rgba(0,0,0,0.08)] hover:-translate-y-1 hover:shadow-lg transition duration-300">
-
-                    <img src="/Assets/RAJESH VARGHESE.avif"
-                        class="w-full h-[260px] md:h-[300px] lg:h-[320px] object-cover rounded-xl mb-4">
-
-                    <h3 class="text-gray-900 font-semibold tracking-wide text-sm">
-                        RAJESH VARGHESE
-                    </h3>
-
-                    <p class="text-gray-500 text-sm">
-                        Secretary
-                    </p>
-
-                </div>
-
-
-
-                <div
-                    class="bg-gradient-to-br from-[rgba(121,242,0,0.2)] to-white rounded-2xl p-5 shadow-[0_6px_18px_rgba(0,0,0,0.08)] hover:-translate-y-1 hover:shadow-lg transition duration-300">
-
-                    <img src="/Assets/SUJITH CHACKO.avif"
-                        class="w-full h-[260px] md:h-[300px] lg:h-[320px] object-cover rounded-xl mb-4">
-
-                    <h3 class="text-gray-900 font-semibold tracking-wide text-sm">
-                        SUJITH CHACKO
-                    </h3>
-
-                    <p class="text-gray-500 text-sm">
-                        Treasurer
-                    </p>
-
-                </div>
-
-
-
-                <div
-                    class="bg-gradient-to-br from-[rgba(121,242,0,0.2)] to-white rounded-2xl p-5 shadow-[0_6px_18px_rgba(0,0,0,0.08)] hover:-translate-y-1 hover:shadow-lg transition duration-300">
-
-                    <img src="/Assets/MATHEWS CHANDAPILLAI.avif"
-                        class="w-full h-[260px] md:h-[300px] lg:h-[320px] object-cover rounded-xl mb-4">
-
-                    <h3 class="text-gray-900 font-semibold tracking-wide text-sm">
-                        MATHEWS CHANDAPILLAI
-                    </h3>
-
-                    <p class="text-gray-500 text-sm">
-                        Vice President
-                    </p>
-
-                </div>
-
             </div> <br>
 
 
 
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div id="bodGrid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4"></div>
 
 
-                <div
-                    class="bg-gradient-to-br from-[rgba(121,242,0,0.2)] to-white rounded-2xl p-5 shadow-[0_6px_18px_rgba(0,0,0,0.08)] hover:-translate-y-1 hover:shadow-lg transition duration-300">
+            <script>
+                const API_URL = "https://script.google.com/macros/s/AKfycbyGZWKnUXI0Wn_LDiAqpipFS830Bdo8FPxOLdhJMhWNNxCUlKXGb2Hj0tffRnAWL8XidQ/exec"; // paste your deployed link
 
-                    <img src="/Assets/CHRISTOPHER GEORGE.avif"
-                        class="w-full h-[260px] md:h-[300px] lg:h-[320px] object-cover rounded-xl mb-4">
+                const container = document.getElementById("bodGrid");
 
-                    <h3 class="text-gray-900 font-semibold tracking-wide text-sm">
-                        CHRISTOPHER GEORGE
-                    </h3>
+                async function loadBOD() {
+                    try {
+                        const res = await fetch(API_URL, { cache: "no-store" });
+                        const data = await res.json();
 
-                    <p class="text-gray-500 text-sm">
-                        Joint Secretary
-                    </p>
+                        container.innerHTML = "";
 
-                </div>
+                        data.forEach(item => {
 
+                            const card = document.createElement("div");
+                            card.className = "bg-gradient-to-br from-[rgba(121,242,0,0.2)] to-white rounded-2xl p-5 shadow-[0_6px_18px_rgba(0,0,0,0.08)] hover:-translate-y-1 hover:shadow-lg transition duration-300";
 
+                            card.innerHTML = `
+                <img src="${item.image}"
+                     class="w-full h-[260px] md:h-[300px] lg:h-[320px] object-cover rounded-xl mb-4"
+                     loading="lazy"
+                     onerror="this.src='https://via.placeholder.com/400x300?text=Image'">
 
-                <div
-                    class="bg-gradient-to-br from-[rgba(121,242,0,0.2)] to-white rounded-2xl p-5 shadow-[0_6px_18px_rgba(0,0,0,0.08)] hover:-translate-y-1 hover:shadow-lg transition duration-300">
+                <h3 class="text-gray-900 font-semibold tracking-wide text-sm">
+                    ${item.name}
+                </h3>
 
-                    <img src="/Assets/SUNIL THANKAPPAN.avif"
-                        class="w-full h-[260px] md:h-[300px] lg:h-[320px] object-cover rounded-xl mb-4">
+                <p class="text-gray-500 text-sm">
+                    ${item.designation}
+                </p>
+            `;
 
-                    <h3 class="text-gray-900 font-semibold tracking-wide text-sm">
-                        SUNIL THANKAPPAN
-                    </h3>
+                            container.appendChild(card);
+                        });
 
-                    <p class="text-gray-500 text-sm">
-                        Joint Secretary
-                    </p>
+                    } catch (err) {
+                        console.error("Error:", err);
+                        container.innerHTML = `<p class="text-red-500">Failed to load data</p>`;
+                    }
+                }
 
-                </div>
-
-
-
-                <div
-                    class="bg-gradient-to-br from-[rgba(121,242,0,0.2)] to-white rounded-2xl p-5 shadow-[0_6px_18px_rgba(0,0,0,0.08)] hover:-translate-y-1 hover:shadow-lg transition duration-300">
-
-                    <img src="/Assets/MICHAYEL  JOY.avif"
-                        class="w-full h-[260px] md:h-[300px] lg:h-[320px] object-cover rounded-xl mb-4">
-
-                    <h3 class="text-gray-900 font-semibold tracking-wide text-sm">
-                        MICHAYEL JOY
-                    </h3>
-
-                    <p class="text-gray-500 text-sm">
-                        Sports Coordinator
-                    </p>
-
-                </div>
-
-
-
-                <div
-                    class="bg-gradient-to-br from-[rgba(121,242,0,0.2)] to-white rounded-2xl p-5 shadow-[0_6px_18px_rgba(0,0,0,0.08)] hover:-translate-y-1 hover:shadow-lg transition duration-300">
-
-                    <img src="/Assets/PREBITMON VELLIYAN.avif"
-                        class="w-full h-[260px] md:h-[300px] lg:h-[320px] object-cover rounded-xl mb-4">
-
-                    <h3 class="text-gray-900 font-semibold tracking-wide text-sm">
-                        PREBITMON VELLIYAN
-                    </h3>
-
-                    <p class="text-gray-500 text-sm">
-                        Membership Coordinator
-                    </p>
-
-                </div>
-
-
-
-            </div>
-
-
-
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-
-
-                <div
-                    class="bg-gradient-to-br from-[rgba(121,242,0,0.2)] to-white rounded-2xl p-5 shadow-[0_6px_18px_rgba(0,0,0,0.08)] hover:-translate-y-1 hover:shadow-lg transition duration-300">
-
-                    <img src="/Assets/RESHMA VINOD.avif"
-                        class="w-full h-[260px] md:h-[300px] lg:h-[320px] object-cover rounded-xl mb-4">
-
-                    <h3 class="text-gray-900 font-semibold tracking-wide text-sm">
-                        RESHMA VINOD
-                    </h3>
-
-                    <p class="text-gray-500 text-sm">
-                        Program Coordinator
-                    </p>
-
-                </div>
-
-
-
-                <div
-                    class="bg-gradient-to-br from-[rgba(121,242,0,0.2)] to-white rounded-2xl p-5 shadow-[0_6px_18px_rgba(0,0,0,0.08)] hover:-translate-y-1 hover:shadow-lg transition duration-300">
-
-                    <img src="/Assets/JOHN W. VARGHESE.avif"
-                        class="w-full h-[260px] md:h-[300px] lg:h-[320px] object-cover rounded-xl mb-4">
-
-                    <h3 class="text-gray-900 font-semibold tracking-wide text-sm">
-                        JOHN W. VARGHESE
-                    </h3>
-
-                    <p class="text-gray-500 text-sm">
-                        PRO
-                    </p>
-
-                </div>
-
-
-
-                <div
-                    class="bg-gradient-to-br from-[rgba(121,242,0,0.2)] to-white rounded-2xl p-5 shadow-[0_6px_18px_rgba(0,0,0,0.08)] hover:-translate-y-1 hover:shadow-lg transition duration-300">
-
-                    <img src="/Assets/JOSEPH KOONATHAN.avif"
-                        class="w-full h-[260px] md:h-[300px] lg:h-[320px] object-cover rounded-xl mb-4">
-
-                    <h3 class="text-gray-900 font-semibold tracking-wide text-sm">
-                        JOSEPH KOONATHAN
-                    </h3>
-
-                    <p class="text-gray-500 text-sm">
-                        Web Coordinator
-                    </p>
-
-                </div>
-
-
-
-                <div
-                    class="bg-gradient-to-br from-[rgba(121,242,0,0.2)] to-white rounded-2xl p-5 shadow-[0_6px_18px_rgba(0,0,0,0.08)] hover:-translate-y-1 hover:shadow-lg transition duration-300">
-
-                    <img src="/Assets/ALEX MATHEW.avif"
-                        class="w-full h-[260px] md:h-[300px] lg:h-[320px] object-cover rounded-xl mb-4">
-
-                    <h3 class="text-gray-900 font-semibold tracking-wide text-sm">
-                        ALEX MATHEW
-                    </h3>
-
-                    <p class="text-gray-500 text-sm">
-                        Charity Coordinator
-                    </p>
-
-                </div>
-
-
-
-            </div>
+                document.addEventListener("DOMContentLoaded", loadBOD);
+            </script>
 
         </div>
 
