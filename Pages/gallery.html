@@ -106,32 +106,8 @@
                     <a href="/Pages/bod.html" class="hover:text-green-600">MAGH BOD</a>
 
 
-                    <!-- PAYMENTS DROPDOWN -->
-
-                    <div class="relative">
-
-                        <button onclick="toggleMenu('paymentsMenu')"
-                            class="flex items-center gap-1 hover:text-green-600">
-
-                            Payments
-
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7" />
-                            </svg>
-
-                        </button>
-
-                        <div id="paymentsMenu"
-                            class="hidden absolute left-0 top-full mt-2 bg-white shadow-lg rounded-lg w-56 py-2">
-
-                            <a href="/payments/join magh.html" class="block px-5 py-3 hover:bg-gray-100">Join MAGH</a>
-                            <a href="#" class="block px-5 py-3 hover:bg-gray-100">Online Payments</a>
-
-                        </div>
-
-                    </div>
+                    <a href="/payments/join magh.html" class="hover:text-green-600">Membership</a>
+                    <a href="/Pages/sponsership.html" class="hover:text-green-600">Sponsorship</a>
 
                     <a href="/Pages/video wall.html" class="hover:text-green-600">Video Wall</a>
                     <a href="/Pages/contact.html" class="hover:text-green-600">Contact</a>
@@ -203,25 +179,13 @@
                     MAGH BOD
                 </a>
 
-                <!-- MOBILE PAYMENTS -->
-                <div>
+                <a href="/payments/join magh.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">
+                    Membership
+                </a>
 
-                    <button onclick="toggleMenu('mobilePayments')"
-                        class="flex justify-between items-center w-full px-4 py-3 hover:bg-gray-100 rounded-lg">
-
-                        Payments
-                        <i data-lucide="chevron-down" class="w-4 h-4"></i>
-
-                    </button>
-
-                    <div id="mobilePayments" class="hidden pl-6 pb-2 space-y-2">
-
-                        <a href="/payments/join magh.html" class="block py-2 text-gray-600">Join MAGH</a>
-                        <a href="#" class="block py-2 text-gray-600">Online Payments</a>
-
-                    </div>
-
-                </div>
+                <a href="/Pages/sponsership.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">
+                    Sponsorship
+                </a>
 
                 <a href="/Pages/video wall.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">
                     Video Wall
@@ -270,7 +234,7 @@
     <section class="relative w-full h-[220px] sm:h-[260px] md:h-[300px] mt-20 overflow-hidden">
 
         <!-- Background Image -->
-        <img src="/Assets/Park.jpg" alt="About MAGH" class="absolute inset-0 w-full h-full object-cover">
+        <img src="/Assets/gallery.jpg" alt="About MAGH" class="absolute inset-0 w-full h-full object-cover">
 
         <!-- Overlay -->
         <div class="absolute inset-0 bg-black/30"></div>
@@ -357,34 +321,8 @@
 
             <div class="max-w-7xl mx-auto px-6">
 
-                <div class="grid md:grid-cols-2 gap-6">
-
-                    <!-- Image 1 -->
-                    <div class="overflow-hidden rounded-2xl">
-                        <img src="/Assets/America.jpg"
-                            class="w-full h-[280px] md:h-[320px] object-cover hover:scale-105 transition duration-500">
-                    </div>
-
-                    <!-- Image 2 -->
-                    <div class="overflow-hidden rounded-2xl">
-                        <img src="/Assets/Chritmas.jpg"
-                            class="w-full h-[280px] md:h-[320px] object-cover hover:scale-105 transition duration-500">
-                    </div>
-
-                    <!-- Image 3 -->
-                    <div class="overflow-hidden rounded-2xl">
-                        <img src="/Assets/About image.jpg"
-                            class="w-full h-[280px] md:h-[320px] object-cover hover:scale-105 transition duration-500">
-                    </div>
-
-                    <!-- Image 4 -->
-                    <div class="overflow-hidden rounded-2xl">
-                        <img src="/Assets/Sea.jpg"
-                            class="w-full h-[280px] md:h-[320px] object-cover hover:scale-105 transition duration-500">
-                    </div>
-
-
-                </div>
+                <!-- DYNAMIC GALLERY GRID -->
+                <div id="galleryGrid" class="grid md:grid-cols-2 gap-6"></div>
 
             </div>
 
@@ -393,7 +331,46 @@
     </section>
 
 
+    <script>
+        const API_URL = "https://script.google.com/macros/s/AKfycbzQGcpazQORkQ-ckQiSscSOTQcadnK4Fj1ntUBx6D7Cu5G8eNkvqGKUVGsHeVFpfNjV/exec";
 
+        const grid = document.getElementById("galleryGrid");
+
+        async function loadGallery() {
+            try {
+                const res = await fetch(API_URL);
+                const data = await res.json();
+
+                console.log("Gallery Data:", data);
+
+                grid.innerHTML = "";
+
+                data.forEach(item => {
+
+                    const wrapper = document.createElement("div");
+                    wrapper.className = "overflow-hidden rounded-2xl";
+
+                    const img = document.createElement("img");
+
+                    img.src = item.image;
+                    img.className = "w-full h-[280px] md:h-[320px] object-cover hover:scale-105 transition duration-500 cursor-pointer";
+
+                    // ✅ FULLSCREEN CLICK
+                    img.addEventListener("click", () => {
+                        openFullscreen(item.image);
+                    });
+
+                    wrapper.appendChild(img);
+                    grid.appendChild(wrapper);
+                });
+
+            } catch (err) {
+                console.error("Gallery Error:", err);
+            }
+        }
+
+        loadGallery();
+    </script>
 
 
 
@@ -462,7 +439,8 @@
                         <h4 class="font-semibold mb-4">Resources</h4>
                         <ul class="space-y-3 text-white/80 text-sm">
                             <li><a href="/Pages/bod.html" class="hover:text-white">MAGH Board</a></li>
-                            <li><a href="/payments/join magh.html" class="hover:text-white">Payments</a></li>
+                            <li><a href="/payments/join magh.html" class="hover:text-white">Membership</a></li>
+                            <li><a href="/payments/join magh.html" class="hover:text-white">Sponsorship</a></li>
                             <li><a href="/Pages/video wall.html" class="hover:text-white">Video Wall</a></li>
                             <li><a href="/Pages/contact.html" class="hover:text-white">Contact</a></li>
 

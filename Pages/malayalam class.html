@@ -46,7 +46,7 @@
             }, 500);
         });
     </script>
-    
+
     <!-- NAVBAR -->
     <nav id="navbar" class="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
 
@@ -108,32 +108,8 @@
                     <a href="/Pages/bod.html" class="hover:text-green-600">MAGH BOD</a>
 
 
-                    <!-- PAYMENTS DROPDOWN -->
-
-                    <div class="relative">
-
-                        <button onclick="toggleMenu('paymentsMenu')"
-                            class="flex items-center gap-1 hover:text-green-600">
-
-                            Payments
-
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7" />
-                            </svg>
-
-                        </button>
-
-                        <div id="paymentsMenu"
-                            class="hidden absolute left-0 top-full mt-2 bg-white shadow-lg rounded-lg w-56 py-2">
-
-                            <a href="/payments/join magh.html" class="block px-5 py-3 hover:bg-gray-100">Join MAGH</a>
-                            <a href="#" class="block px-5 py-3 hover:bg-gray-100">Online Payments</a>
-
-                        </div>
-
-                    </div>
+                    <a href="/payments/join magh.html" class="hover:text-green-600">Membership</a>
+                    <a href="/Pages/sponsership.html" class="hover:text-green-600">Sponsorship</a>
 
                     <a href="/Pages/video wall.html" class="hover:text-green-600">Video Wall</a>
                     <a href="/Pages/contact.html" class="hover:text-green-600">Contact</a>
@@ -205,25 +181,13 @@
                     MAGH BOD
                 </a>
 
-                <!-- MOBILE PAYMENTS -->
-                <div>
+                <a href="/payments/join magh.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">
+                    Membership
+                </a>
 
-                    <button onclick="toggleMenu('mobilePayments')"
-                        class="flex justify-between items-center w-full px-4 py-3 hover:bg-gray-100 rounded-lg">
-
-                        Payments
-                        <i data-lucide="chevron-down" class="w-4 h-4"></i>
-
-                    </button>
-
-                    <div id="mobilePayments" class="hidden pl-6 pb-2 space-y-2">
-
-                        <a href="/payments/join magh.html" class="block py-2 text-gray-600">Join MAGH</a>
-                        <a href="#" class="block py-2 text-gray-600">Online Payments</a>
-
-                    </div>
-
-                </div>
+                <a href="/Pages/sponsership.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">
+                    Sponsorship
+                </a>
 
                 <a href="/Pages/video wall.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">
                     Video Wall
@@ -548,7 +512,8 @@
                         <h4 class="font-semibold mb-4">Resources</h4>
                         <ul class="space-y-3 text-white/80 text-sm">
                             <li><a href="/Pages/bod.html" class="hover:text-white">MAGH Board</a></li>
-                            <li><a href="/payments/join magh.html" class="hover:text-white">Payments</a></li>
+                            <li><a href="/payments/join magh.html" class="hover:text-white">Membership</a></li>
+                            <li><a href="/payments/join magh.html" class="hover:text-white">Sponsorship</a></li>
                             <li><a href="/Pages/video wall.html" class="hover:text-white">Video Wall</a></li>
                             <li><a href="/Pages/contact.html" class="hover:text-white">Contact</a></li>
 

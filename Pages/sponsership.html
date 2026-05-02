@@ -13,14 +13,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 
 </head>
 
 <body class="bg-white">
+
     <!-- PAGE LOADER -->
     <div id="loader" class="fixed inset-0 bg-white flex items-center justify-center z-[9999]">
 
@@ -47,7 +46,6 @@
             }, 500);
         });
     </script>
-
     <!-- NAVBAR -->
     <nav id="navbar" class="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
 
@@ -109,10 +107,11 @@
 
 
                     <a href="/payments/join magh.html" class="hover:text-green-600">Membership</a>
-                    <a href="/Pages/sponsership.html" class="hover:text-green-600">Sponsorship</a>
+                    <a href="/Pages/sponsership.html"
+                        class="bg-green-600 text-white px-5 py-2 rounded-full">Sponsorship</a>
 
                     <a href="/Pages/video wall.html" class="hover:text-green-600">Video Wall</a>
-                    <a href="/Pages/contact.html" class="   bg-green-600 text-white px-5 py-2 rounded-full">Contact</a>
+                    <a href="/Pages/contact.html" class="hover:text-green-600">Contact</a>
 
                 </div>
 
@@ -169,7 +168,7 @@
 
                 </div>
 
-                <a href="/Pages/gallery.html" class=" block px-4 py-3 hover:bg-gray-100 rounded-lg ">
+                <a href="#" class="  block bg-green-600 text-white px-4 py-3 rounded-lg">
                     Gallery
                 </a>
 
@@ -193,7 +192,7 @@
                     Video Wall
                 </a>
 
-                <a href="/Pages/contact.html" class="  block bg-green-600 text-white px-4 py-3 rounded-lg">
+                <a href="/Pages/contact.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">
                     Contact
                 </a>
 
@@ -236,7 +235,7 @@
     <section class="relative w-full h-[220px] sm:h-[260px] md:h-[300px] mt-20 overflow-hidden">
 
         <!-- Background Image -->
-        <img src="/Assets/evening.jpg" alt="About MAGH" class="absolute inset-0 w-full h-full object-cover">
+        <img src="/Assets/gallery.jpg" alt="About MAGH" class="absolute inset-0 w-full h-full object-cover">
 
         <!-- Overlay -->
         <div class="absolute inset-0 bg-black/30"></div>
@@ -245,7 +244,8 @@
         <div class="relative h-full flex items-center justify-center">
 
             <h3 class="text-3xl md:text-4xl text-white mb-6">
-                Contact <span class="font-bold">Us</span>
+                <span class="font-bold">
+                    Sponsorship</span>
             </h3>
 
         </div>
@@ -254,199 +254,153 @@
 
 
 
+    <!-- SPONSOR / EVENT SLIDER -->
+    <section class="py-10 px-4 md:px-6">
+        <div class="max-w-7xl mx-auto">
 
-    <!-- CONTACT SECTION -->
-    <section class="fade-section py-10">
+            <div class="relative overflow-hidden rounded-3xl 
+                    h-[320px] sm:h-[450px] md:h-[550px] lg:h-[650px] bg-black">
 
-        <div class="max-w-7xl mx-auto px-6">
+                <!-- SLIDER TRACK -->
+                <div id="sliderTrack" class="flex h-full transition-transform duration-700 ease-in-out"></div>
 
-            <div class="grid md:grid-cols-5 gap-16 items-start">
+                <!-- OVERLAY -->
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
 
-                <!-- Left Side (40%) -->
-                <div class="md:col-span-2">
-                    <!-- Label -->
-                    <div
-                        class="inline-flex items-center bg-[#79F200]/20 text-[#1C8E00] text-sm font-medium px-4 py-1 rounded-full mb-4">
-                        <span class="w-2 h-2 bg-[#1C8E00] rounded-full mr-2"></span>
-                        Get in Touch
-                    </div>
-                    <h2 class="text-3xl font-light mb-6">Get In <span class="font-bold">Touch</span> </h2>
+                <!-- LEFT -->
+                <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 backdrop-blur 
+                       w-10 h-10 rounded-full flex items-center justify-center z-20">
 
-                    <p class="text-gray-600 mb-10 max-w-md">
-                        Have a question or want to get involved with our community? Reach out to the
-                        Malayalee Association of Greater Houston.
-                    </p>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
 
-                    <div class="space-y-6 text-gray-700">
+                <!-- RIGHT -->
+                <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 backdrop-blur 
+                       w-10 h-10 rounded-full flex items-center justify-center z-20">
 
-                        <div class="flex items-start gap-4">
-                            <i data-lucide="mail" class="text-green-600 w-6 h-6"></i>
-                            <span>secretary@maghusa.org</span>
-                        </div>
-
-                        <div class="flex items-start gap-4">
-                            <i data-lucide="map-pin" class="text-green-600 w-6 h-6"></i>
-                            <span>1415 Packer Ln, Stafford,<br>TX 77477, USA</span>
-                        </div>
-
-                        <div class="flex items-start gap-4">
-                            <i data-lucide="phone" class="text-green-600 w-6 h-6"></i>
-                            <span>Tel: 713-515-8432</span>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- Right Side (60%) -->
-                <div class="md:col-span-3">
-
-                    <form id="contactForm" action="https://formsubmit.co/ajax/ebenezerlalu07@gmail.com" method="POST"
-                        class="space-y-3">
-
-                        <!-- Hidden Settings -->
-                        <input type="hidden" name="_template" value="table">
-                        <input type="hidden" name="_captcha" value="false">
-
-                        <!-- Professional subject -->
-                        <input type="hidden" name="_subject" value="New Contact Message | MAGH Website">
-
-                        <!-- Name -->
-                        <input type="text" name="Name" placeholder="Enter your name"
-                            class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500"
-                            required>
-
-                        <!-- Email -->
-                        <input type="email" name="Email" placeholder="Enter your email"
-                            class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500"
-                            required>
-
-                        <!-- User Subject -->
-                        <input type="text" name="User_Subject" placeholder="Subject (Event inquiry, Membership, etc.)"
-                            class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500">
-
-                        <!-- Message -->
-                        <textarea name="Message" rows="5" placeholder="Enter your message here"
-                            class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500">
-</textarea>
-
-                        <button type="submit"
-                            class="w-full bg-green-600 text-white py-4 rounded-full text-lg font-medium hover:bg-green-700 transition">
-                            Submit
-                        </button>
-
-                    </form>
-
-                    <p id="formMessage" class="text-green-600 mt-4 hidden">
-                        Message sent successfully!
-                    </p>
-
-                    <script>
-
-                        document.addEventListener("DOMContentLoaded", () => {
-
-                            const form = document.getElementById("contactForm");
-                            const button = form.querySelector("button");
-
-                            form.addEventListener("submit", async (e) => {
-
-                                e.preventDefault();
-
-                                const formData = new FormData(form);
-
-                                button.innerText = "Sending...";
-                                button.disabled = true;
-
-                                try {
-
-                                    const response = await fetch(form.action, {
-                                        method: "POST",
-                                        body: formData,
-                                        headers: {
-                                            "Accept": "application/json"
-                                        }
-                                    });
-
-                                    if (response.ok) {
-
-                                        Toastify({
-                                            text: "Message sent successfully!",
-                                            duration: 3000,
-                                            gravity: "top",
-                                            position: "right",
-                                            style: {
-                                                background: "#16a34a",
-                                                borderRadius: "8px"
-                                            }
-                                        }).showToast();
-
-                                        form.reset();
-
-                                    } else {
-
-                                        Toastify({
-                                            text: "Something went wrong!",
-                                            duration: 3000,
-                                            gravity: "top",
-                                            position: "right",
-                                            style: {
-                                                background: "#dc2626"
-                                            }
-                                        }).showToast();
-
-                                    }
-
-                                } catch (error) {
-
-                                    Toastify({
-                                        text: "Error sending message.",
-                                        duration: 3000,
-                                        gravity: "top",
-                                        position: "right",
-                                        style: {
-                                            background: "#dc2626"
-                                        }
-                                    }).showToast();
-
-                                }
-
-                                button.innerText = "Submit";
-                                button.disabled = false;
-
-                            });
-
-                        });
-
-                    </script>
-
-
-
-                </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
 
             </div>
 
         </div>
-
     </section>
 
-    <!-- MAP SECTION -->
-    <section class="py-10">
 
-        <div class="max-w-7xl mx-auto px-6">
+    <!-- FULLSCREEN MODAL -->
+    <div id="fullscreenModal" class="fixed inset-0 bg-black/95 hidden items-center justify-center z-[9999]">
 
-            <div class="rounded-2xl overflow-hidden shadow-md">
+        <!-- CLOSE BUTTON -->
+        <button onclick="closeFullscreen()" class="absolute top-6 right-6 text-white text-3xl z-[10000]">✕</button>
 
-                <iframe src="https://www.google.com/maps?q=1415+Packer+Ln,+Stafford,+TX+77477,+USA&output=embed"
-                    width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+        <!-- IMAGE -->
+        <img id="fullImage" class="max-w-full max-h-full object-contain">
+    </div>
 
-            </div>
 
-        </div>
+    <!-- SCRIPT -->
+    <script>
+        const API_URL = "https://script.google.com/macros/s/AKfycbyXhFL5AIKkY2u425Mhoed-QiyonNBbY03Rgq0elzzoS_LDo-v79zZiErH-T58kh1YIjA/exec";
 
-    </section>
+        const track = document.getElementById("sliderTrack");
+        let index = 0;
+        let slides = [];
+
+        async function loadImages() {
+            try {
+                const res = await fetch(API_URL);
+                const data = await res.json();
+
+                console.log("API DATA:", data); // debug
+
+                if (!data.length) return;
+
+                track.innerHTML = "";
+
+                data.forEach(item => {
+                    const img = document.createElement("img");
+
+                    img.src = item.image;
+                    img.className = "w-full h-full flex-shrink-0 object-contain cursor-pointer";
+
+                    // ✅ CLICK FIXED
+                    img.addEventListener("click", () => {
+                        openFullscreen(item.image);
+                    });
+
+                    track.appendChild(img);
+                });
+
+                slides = track.children;
+                updateSlider();
+
+            } catch (err) {
+                console.error("Error:", err);
+            }
+        }
+
+        function updateSlider() {
+            track.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        function nextSlide() {
+            if (!slides.length) return;
+            index = (index + 1) % slides.length;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            if (!slides.length) return;
+            index = (index - 1 + slides.length) % slides.length;
+            updateSlider();
+        }
+
+        // AUTO SLIDE
+        setInterval(nextSlide, 4000);
+
+
+        // ✅ OPEN FULLSCREEN
+        function openFullscreen(src) {
+            const modal = document.getElementById("fullscreenModal");
+            const img = document.getElementById("fullImage");
+
+            img.src = src;
+
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+        }
+
+
+        // ✅ CLOSE FULLSCREEN
+        function closeFullscreen() {
+            const modal = document.getElementById("fullscreenModal");
+
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+        }
+
+
+        // CLICK OUTSIDE TO CLOSE
+        document.getElementById("fullscreenModal").addEventListener("click", function (e) {
+            if (e.target.id === "fullscreenModal") {
+                closeFullscreen();
+            }
+        });
+
+
+        // LOAD DATA
+        loadImages();
+    </script>
+
+
+
+
 
 
 

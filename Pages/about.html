@@ -15,727 +15,458 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-
 </head>
 
 <body class="bg-white">
 
     <!-- PAGE LOADER -->
     <div id="loader" class="fixed inset-0 bg-white flex items-center justify-center z-[9999]">
-
         <div class="flex flex-col items-center gap-6">
-
-
-
-            <!-- LOADING SPINNER -->
             <div class="w-10 h-10 border-4 border-gray-200 border-t-[#0AB30F] rounded-full animate-spin"></div>
-
         </div>
-
     </div>
-
 
     <script>
         window.addEventListener("load", function () {
             const loader = document.getElementById("loader");
             loader.style.opacity = "0";
             loader.style.transition = "opacity 0.5s ease";
-
-            setTimeout(() => {
-                loader.style.display = "none";
-            }, 500);
+            setTimeout(() => { loader.style.display = "none"; }, 500);
         });
     </script>
+
     <!-- NAVBAR -->
     <nav id="navbar" class="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
-
         <div class="max-w-7xl mx-auto px-6">
-
             <div class="flex justify-between items-center h-20">
-
-                <!-- Logo -->
                 <a href="/index.html">
                     <img src="/Assets/Logo.avif" class="h-14" alt="Logo">
                 </a>
-
-
-                <!-- Desktop Menu -->
-
                 <div class="hidden md:flex items-center space-x-7 font-medium text-gray-800">
-
-                    <a href="/index.html" class="  hover:text-green-600">
-                        Home
-                    </a>
-
+                    <a href="/index.html" class="hover:text-green-600">Home</a>
                     <a href="/Pages/about.html" class="bg-green-600 text-white px-5 py-2 rounded-full">About Us</a>
-
-
-                    <!-- EVENTS DROPDOWN -->
-
                     <div class="relative">
-
                         <button onclick="toggleMenu('eventsMenu')" class="flex items-center gap-1 hover:text-green-600">
-
                             Events
-
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
-
                         </button>
-
-                        <div id="eventsMenu"
-                            class="hidden absolute left-0 top-full mt-2 bg-white shadow-lg rounded-lg w-56 py-2">
-
-                            <a href="/Events/upcoming events.html" class="block px-5 py-3 hover:bg-gray-100">Upcoming
-                                Events</a>
-                            <a href="/Events/previous events.html" class="block px-5 py-3 hover:bg-gray-100">Previous
-                                Events</a>
+                        <div id="eventsMenu" class="hidden absolute left-0 top-full mt-2 bg-white shadow-lg rounded-lg w-56 py-2">
+                            <a href="/Events/upcoming events.html" class="block px-5 py-3 hover:bg-gray-100">Upcoming Events</a>
+                            <a href="/Events/previous events.html" class="block px-5 py-3 hover:bg-gray-100">Previous Events</a>
                             <a href="#" class="block px-5 py-3 hover:bg-gray-100">Community Events</a>
-
                         </div>
-
                     </div>
-
-
                     <a href="/Pages/gallery.html" class="hover:text-green-600">Gallery</a>
                     <a href="/Pages/malayalam class.html" class="hover:text-green-600">Malayalam Class</a>
                     <a href="/Pages/bod.html" class="hover:text-green-600">MAGH BOD</a>
-
-
-                    <!-- PAYMENTS DROPDOWN -->
-
-                    <div class="relative">
-
-                        <button onclick="toggleMenu('paymentsMenu')"
-                            class="flex items-center gap-1 hover:text-green-600">
-
-                            Payments
-
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7" />
-                            </svg>
-
-                        </button>
-
-                        <div id="paymentsMenu"
-                            class="hidden absolute left-0 top-full mt-2 bg-white shadow-lg rounded-lg w-56 py-2">
-
-                            <a href="/payments/join magh.html" class="block px-5 py-3 hover:bg-gray-100">Join MAGH</a>
-                            <a href="#" class="block px-5 py-3 hover:bg-gray-100">Online Payments</a>
-
-                        </div>
-
-                    </div>
-
+                    <a href="/payments/join magh.html" class="hover:text-green-600">Membership</a>
+                    <a href="/Pages/sponsership.html" class="hover:text-green-600">Sponsorship</a>
                     <a href="/Pages/video wall.html" class="hover:text-green-600">Video Wall</a>
                     <a href="/Pages/contact.html" class="hover:text-green-600">Contact</a>
-
                 </div>
-
-
-                <!-- Mobile Button -->
                 <button id="menuBtn" class="md:hidden">
-
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16" />
-
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
-
                 </button>
-
             </div>
-
         </div>
-
 
         <!-- MOBILE MENU -->
         <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
-
             <div class="px-6 py-4 space-y-2 text-gray-800 font-medium">
-
-                <a href="#" class="  block px-4 py-3 hover:bg-gray-100 rounded-lg">
-                    Home
-                </a>
-
-                <a href="#" class="block bg-green-600 text-white px-4 py-3 rounded-lg  ">
-                    About Us
-                </a>
-
-                <!-- MOBILE EVENTS -->
+                <a href="#" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">Home</a>
+                <a href="#" class="block bg-green-600 text-white px-4 py-3 rounded-lg">About Us</a>
                 <div>
-
-                    <button onclick="toggleMenu('mobileEvents')"
-                        class="flex justify-between items-center w-full px-4 py-3 hover:bg-gray-100 rounded-lg">
-
+                    <button onclick="toggleMenu('mobileEvents')" class="flex justify-between items-center w-full px-4 py-3 hover:bg-gray-100 rounded-lg">
                         Events
                         <i data-lucide="chevron-down" class="w-4 h-4"></i>
-
                     </button>
-
                     <div id="mobileEvents" class="hidden pl-6 pb-2 space-y-2">
-
                         <a href="/Events/upcoming events.html" class="block py-2 text-gray-600">Upcoming Events</a>
                         <a href="/Events/previous events.html" class="block py-2 text-gray-600">Previous Events</a>
                         <a href="/Events/community events.html" class="block py-2 text-gray-600">Community Events</a>
-
                     </div>
-
                 </div>
-
-                <a href="/Pages/gallery.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">
-                    Gallery
-                </a>
-
-                <a href="/Pages/malayalam class.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">
-                    Malayalam Class
-                </a>
-
-                <a href="/Pages/bod.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">
-                    MAGH BOD
-                </a>
-
-                <!-- MOBILE PAYMENTS -->
-                <div>
-
-                    <button onclick="toggleMenu('mobilePayments')"
-                        class="flex justify-between items-center w-full px-4 py-3 hover:bg-gray-100 rounded-lg">
-
-                        Payments
-                        <i data-lucide="chevron-down" class="w-4 h-4"></i>
-
-                    </button>
-
-                    <div id="mobilePayments" class="hidden pl-6 pb-2 space-y-2">
-
-                        <a href="/payments/join magh.html" class="block py-2 text-gray-600">Join MAGH</a>
-                        <a href="#" class="block py-2 text-gray-600">Online Payments</a>
-
-                    </div>
-
-                </div>
-
-                <a href="/Pages/video wall.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">
-                    Video Wall
-                </a>
-
-                <a href="/Pages/contact.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">
-                    Contact
-                </a>
-
+                <a href="/Pages/gallery.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">Gallery</a>
+                <a href="/Pages/malayalam class.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">Malayalam Class</a>
+                <a href="/Pages/bod.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">MAGH BOD</a>
+                <a href="/payments/join magh.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">Membership</a>
+                <a href="/Pages/sponsership.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">Sponsorship</a>
+                <a href="/Pages/video wall.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">Video Wall</a>
+                <a href="/Pages/contact.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">Contact</a>
             </div>
-
         </div>
-
     </nav>
 
     <script>
-
         let lastScroll = 0;
         const navbar = document.getElementById("navbar");
-
         window.addEventListener("scroll", () => {
-
             let currentScroll = window.pageYOffset;
-
             if (currentScroll > lastScroll) {
-
                 navbar.classList.remove("nav-show");
                 navbar.classList.add("nav-hide");
-
             } else {
-
                 navbar.classList.remove("nav-hide");
                 navbar.classList.add("nav-show");
-
             }
-
             lastScroll = currentScroll;
-
         });
-
     </script>
 
-
-
-    <!--BANNER -->
+    <!-- BANNER -->
     <section class="relative w-full h-[220px] sm:h-[260px] md:h-[300px] mt-20 overflow-hidden">
-
-        <!-- Background Image -->
-        <img src="/Assets/America.jpg" alt="About MAGH" class="absolute inset-0 w-full h-full object-cover">
-
-        <!-- Overlay -->
+        <img src="/Assets/Gallry.jpg" alt="About MAGH" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-black/30"></div>
-
-        <!-- Center Text -->
         <div class="relative h-full flex items-center justify-center">
-
             <h3 class="text-3xl md:text-4xl text-white mb-6">
                 About <span class="font-bold">Magh</span>
             </h3>
-
         </div>
-
     </section>
 
 
     <!-- ABOUT SECTION -->
     <section class="fade-section">
-
         <div class="max-w-7xl mx-auto px-6">
-
-            <!-- Story Section -->
             <div class="mt-10">
 
                 <h3 class="text-3xl md:text-4xl font-light text-gray-900 mb-3">
-                    Malayalee Association of Greater
-                    <span class="font-bold">Houston</span>, Story
+                    40 Years of MAGH and Its History – A Proud Milestone for the
+                    <span class="font-bold">Malayalee Community</span>
                 </h3>
 
                 <p class="text-black leading-relaxed">
-                    Founded in 1987, Malayalee Association of Greater Houston (MAGH) has led numerous successful
-                    campaigns that have impacted Malayalee Communities in Stafford, Missouri city, Sugar Land and across
-                    Houston. Through events, telethons, sports tournaments, and community programs organized by MAGH, we
-                    reach out to all the Malayalee communities in Houston and surrounding areas. MAGH conducts various
-                    Celebrations throughout the year such as Republic Day, Independence Day and other Indian festivals.
-                    ONAM is considered the most popular and the biggest event among MAGH members. MAGH also conducts
-                    many Community Events such as Blood Drives , Passport Fairs, Vaccination Campaigns, as well as
-                    several Seminars that focused to help our youths and adults. MAGH Charity has helped so many in the
-                    past years and currently helping 100 people who are not able to afford the cost of surgery in
-                    Kerala, India to get FREE Cataract Surgery.
+                    Since 1986, Malayalees who migrated to Houston recognized the need for a unified platform to
+                    preserve their cultural identity and stay connected. Under the visionary leadership of Sri K. H.
+                    Philip (President) and other pioneers, the foundation was laid for what would later become the
+                    Malayalee Association of Greater Houston (MAGH)—a cornerstone for cultural, social, and community
+                    engagement.
                 </p><br>
 
                 <!-- Label -->
-                <div
-                    class="inline-flex items-center bg-[#79F200]/20 text-[#1C8E00] text-sm font-medium px-4 py-1 rounded-full mb-4">
+                <div class="inline-flex items-center bg-[#79F200]/20 text-[#1C8E00] text-sm font-medium px-4 py-1 rounded-full mb-4">
                     <span class="w-2 h-2 bg-[#1C8E00] rounded-full mr-2"></span>
-                    Volunteer Activities
+                    Early Years &amp; Formation
                 </div><br>
 
                 <p class="text-black leading-relaxed">
-                    As a non-profit organization, MAGH has conducted several charitable events to help the American
-                    community and also took part in charitable causes in other parts of the world during natural
-                    disasters and pandemics. Our volunteers joined the officials to arrange shelters, serving food and
-                    providing medical assistance for the victims of Hurricane Katrina in New Orleans. Our volunteers
-                    worked for weeks to clean and rebuild the houses and provided food/water to the residents of
-                    Missouri City and City of Houston during Hurricane Harvey.Our volunteers organized several food
-                    drives to collect food items and delivered them to the Houston Food Bank during the Covid-19
-                    pandemic. In the past years, we organized several blood drives with MD Anderson Cancer Center and
-                    Gulf Coast Blood Bank.Teaming up with "Let Them Smile Again", an organization that belongs to the
-                    MAGH members, we were able to organize free medical camps in Columbia, Mexico and India, for
-                    children with cleft lip palate and done corrective surgery to fix them.Currently, we are planning to
-                    offer free Cataract surgery for one hundred people in Kerala, who are not able to afford the cost of
-                    surgery.
+                    In the early 1980s, Malayalees in Houston began organizing informal gatherings to stay connected.
+                    By 1983, structured efforts emerged through the formation of the Kerala Club, marking the beginning
+                    of organized community activities. In 1986, these efforts culminated in the formation of a formal
+                    association that united Malayalees under one umbrella. From its inception, MAGH focused on
+                    preserving Malayalam language, cultural traditions, and community unity among expatriates.
                 </p><br>
 
                 <!-- Label -->
-                <div
-                    class="inline-flex items-center bg-[#79F200]/20 text-[#1C8E00] text-sm font-medium px-4 py-1 rounded-full mb-4">
+                <div class="inline-flex items-center bg-[#79F200]/20 text-[#1C8E00] text-sm font-medium px-4 py-1 rounded-full mb-4">
                     <span class="w-2 h-2 bg-[#1C8E00] rounded-full mr-2"></span>
-                    Volunteer Activities
+                    Growth &amp; Activities
                 </div><br>
 
                 <p class="text-black leading-relaxed">
+                    Over the years, MAGH expanded significantly, offering a wide range of programs and initiatives, including:
+                </p>
+                <ul class="list-none mt-2 mb-4 space-y-2">
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Cultural programs and stage performances</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Onam and other traditional festival celebrations</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Sports tournaments and recreational activities</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Community service and charity initiatives</li>
+                </ul>
+                <p class="text-black leading-relaxed">
+                    With steadily increasing membership, MAGH evolved into a central hub for the Malayalee community in Houston.
+                </p><br>
 
-                    MAGH organized 6 Passport fairs in the last 3 years by Fort Bend County for residents in Houston and
-                    its suburbs. Conducted several sports tournaments every year for Basketball, Volleyball, Cricket,
-                    Badminton and Soccer for youngsters to promote unity, friendship, and fellowship in our community.
-                    We also conducted meetings and seminars about Career Guidance, Drug abuse awareness among our youths
-                    as well as importance of Voting, Tax and Medicare Laws, Retirement planning seminars for Adults.
-                    Moreover, we are also providing transportation for medical appointments for our senior members who
-                    are not able to drive. Since MAGH is a 501(c)3 corporation, all accounts are transparent and any
-                    donations made to us are tax exempt.
+                <!-- Label -->
+                <div class="inline-flex items-center bg-[#79F200]/20 text-[#1C8E00] text-sm font-medium px-4 py-1 rounded-full mb-4">
+                    <span class="w-2 h-2 bg-[#1C8E00] rounded-full mr-2"></span>
+                    Leadership &amp; Contributions
+                </div><br>
+
+                <p class="text-black leading-relaxed">
+                    The success of MAGH is deeply rooted in the dedication of its leaders and volunteers.
+                </p>
+                <ul class="list-none mt-2 mb-4 space-y-2">
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Successive leadership teams ensured strong governance through elected committees</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Volunteers contributed selflessly toward the growth and sustainability of the organization</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Numerous individuals played pivotal roles in building a strong and lasting foundation</li>
+                </ul><br>
+
+                <!-- Label -->
+                <div class="inline-flex items-center bg-[#79F200]/20 text-[#1C8E00] text-sm font-medium px-4 py-1 rounded-full mb-4">
+                    <span class="w-2 h-2 bg-[#1C8E00] rounded-full mr-2"></span>
+                    Major Milestones
+                </div><br>
+
+                <p class="text-black leading-relaxed">
+                    MAGH has consistently delivered impactful and memorable events, including:
+                </p>
+                <ul class="list-none mt-2 mb-4 space-y-2">
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Grand Onam celebrations</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Arts and cultural programs</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Sports tournaments and community gatherings</li>
+                </ul>
+                <p class="text-black leading-relaxed">
+                    The organization has earned recognition for actively promoting Malayalam language, arts, and heritage,
+                    while also engaging in charitable and community welfare initiatives.
+                </p><br>
+
+                <!-- Label -->
+                <div class="inline-flex items-center bg-[#79F200]/20 text-[#1C8E00] text-sm font-medium px-4 py-1 rounded-full mb-4">
+                    <span class="w-2 h-2 bg-[#1C8E00] rounded-full mr-2"></span>
+                    Community Impact
+                </div><br>
+
+                <p class="text-black leading-relaxed">
+                    MAGH has played a vital role in strengthening the Malayalee diaspora by serving as:
+                </p>
+                <ul class="list-none mt-2 mb-4 space-y-2">
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>A cultural bridge for second-generation Malayalees</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>A support system for new immigrants</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>A platform for unity, identity, and belonging</li>
+                </ul><br>
+
+                <!-- Label -->
+                <div class="inline-flex items-center bg-[#79F200]/20 text-[#1C8E00] text-sm font-medium px-4 py-1 rounded-full mb-4">
+                    <span class="w-2 h-2 bg-[#1C8E00] rounded-full mr-2"></span>
+                    Recent Years &amp; Continued Progress
+                </div><br>
+
+                <p class="text-black leading-relaxed">
+                    Adapting to changing times, MAGH continues to grow with:
+                </p>
+                <ul class="list-none mt-2 mb-4 space-y-2">
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Innovative programs and events</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Increased youth engagement and leadership opportunities</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Educational, cultural, and social initiatives</li>
+                </ul>
+                <p class="text-black leading-relaxed">
+                    Today, MAGH stands as one of the largest Malayalee associations in the United States,
+                    with a membership of over 4,600 members.
+                </p><br>
+                <p class="text-black leading-relaxed">
+                    The organization also boasts significant infrastructure:
+                </p>
+                <ul class="list-none mt-2 mb-4 space-y-2">
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>1.82 acres of owned property, with plans to expand by an additional 1.5 acres</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Kerala House (Main Hall) – accommodating up to 200 people</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Recreational Center – a multi-purpose facility, widely used for badminton and indoor activities</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Cricket batting cage and pitch, supporting the growing interest in cricket within the community</li>
+                </ul><br>
+
+                <!-- Label -->
+                <div class="inline-flex items-center bg-[#79F200]/20 text-[#1C8E00] text-sm font-medium px-4 py-1 rounded-full mb-4">
+                    <span class="w-2 h-2 bg-[#1C8E00] rounded-full mr-2"></span>
+                    Conclusion
+                </div><br>
+
+                <p class="text-black leading-relaxed">
+                    MAGH stands today as a proud symbol of:
+                </p>
+                <ul class="list-none mt-2 mb-4 space-y-2">
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Unity</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Cultural Pride</li>
+                    <li class="flex items-start gap-2 text-black leading-relaxed"><span class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Community Strength</li>
+                </ul>
+                <p class="text-black leading-relaxed">
+                    Its remarkable journey—from small informal gatherings to a thriving, influential organization—reflects
+                    the vision, dedication, and collective spirit of the Houston Malayalee community.
                 </p><br>
 
             </div>
-
         </div>
-
     </section>
+
 
     <!-- AUTOSLIDER SECTION -->
     <section class="fade-section max-w-7xl mx-auto px-4 py-3">
-
         <div class="relative overflow-hidden rounded-3xl">
-
-            <!-- Slides -->
             <div id="slider" class="relative h-[320px] sm:h-[420px] md:h-[520px] lg:h-[600px]">
-
                 <img src="/Assets/Street.jpg"
                     class="slide absolute inset-0 w-full h-full object-cover opacity-0 scale-110 transition-all duration-1000">
-
                 <img src="/Assets/Street.jpg"
                     class="slide absolute inset-0 w-full h-full object-cover opacity-0 scale-110 transition-all duration-1000">
-
                 <img src="/Assets/evening.jpg"
                     class="slide absolute inset-0 w-full h-full object-cover opacity-0 scale-110 transition-all duration-1000">
-
             </div>
-
-            <!-- LEFT BUTTON -->
-            <button onclick="prevSlide()" class="absolute left-5 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full 
-bg-white/20 backdrop-blur-md border border-white/30
-flex items-center justify-center text-white
-hover:bg-white/30 transition duration-300">
-
+            <button onclick="prevSlide()" class="absolute left-5 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full
+                bg-white/20 backdrop-blur-md border border-white/30
+                flex items-center justify-center text-white
+                hover:bg-white/30 transition duration-300">
                 <i data-lucide="arrow-left" class="w-6 h-6"></i>
-
             </button>
-
-            <!-- RIGHT BUTTON -->
-            <button onclick="nextSlide()" class="absolute right-5 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full 
-bg-white/20 backdrop-blur-md border border-white/30
-flex items-center justify-center text-white
-hover:bg-white/30 transition duration-300">
-
+            <button onclick="nextSlide()" class="absolute right-5 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full
+                bg-white/20 backdrop-blur-md border border-white/30
+                flex items-center justify-center text-white
+                hover:bg-white/30 transition duration-300">
                 <i data-lucide="arrow-right" class="w-6 h-6"></i>
-
             </button>
-
         </div>
-
     </section>
 
     <script>
-
         let currentSlide = 0
         const slides = document.querySelectorAll(".slide")
-
         function showSlide(index) {
-
             slides.forEach((slide, i) => {
-
                 slide.style.opacity = i === index ? "1" : "0"
                 slide.style.transform = i === index ? "scale(1)" : "scale(1.1)"
-
             })
-
         }
-
         function nextSlide() {
-
             currentSlide++
-
-            if (currentSlide >= slides.length) {
-                currentSlide = 0
-            }
-
+            if (currentSlide >= slides.length) currentSlide = 0
             showSlide(currentSlide)
-
         }
-
         function prevSlide() {
-
             currentSlide--
-
-            if (currentSlide < 0) {
-                currentSlide = slides.length - 1
-            }
-
+            if (currentSlide < 0) currentSlide = slides.length - 1
             showSlide(currentSlide)
-
         }
-
-        /* AUTO SLIDE */
-
         setInterval(nextSlide, 5000)
-
-        /* INITIAL SLIDE */
-
         showSlide(0)
-
     </script>
 
 
     <!-- MAGH VISION SECTION -->
     <section class="fade-section py-10">
-
         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-stretch">
-
-            <!-- Image -->
             <div class="hidden md:block h-full">
-                <img src="/Assets/American flag.jpg" class="w-full h-full object-cover rounded-3xl">
+                <img src="/Assets/Houston 2.jpg" class="w-full h-full object-cover rounded-3xl">
             </div>
-
-            <!-- Content -->
             <div class="flex flex-col justify-center h-full">
-
                 <h3 class="text-3xl md:text-4xl font-light text-gray-900 mb-3">
-                    Magh
-                    <span class="font-bold">Vision</span>
+                    Magh <span class="font-bold">Vision</span>
                 </h3>
-
                 <p class="text-black leading-relaxed">
                     Our vision is to build a strong, united, and vibrant Malayalee community in Greater Houston by
                     preserving and celebrating our rich cultural heritage while fostering a spirit of unity, service,
                     and compassion. We strive to create meaningful opportunities for members of all ages to connect,
                     grow, and support one another through cultural programs, community initiatives, and charitable
                     activities.<br><br>
-
                     Through active community engagement, volunteer service, and educational programs, we aim to inspire
                     future generations to embrace their roots, develop leadership qualities, and contribute positively
                     to society. By promoting togetherness, cultural pride, and social responsibility, we aspire to make
                     a lasting impact within our community and extend our support to those in need both locally and
                     globally.
                 </p><br>
-
                 <a href="/Pages/contact.html"
                     class="inline-block bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-medium transition w-fit">
                     Get in Touch
                 </a>
-
             </div>
-
         </div>
-
     </section>
 
 
-
-
-
-
-
-
-
+    <!-- FOOTER -->
     <footer class="text-white pt-16 pb-8 bg-cover bg-center relative"
         style="background-image:url('/Assets/Gradient.jpg');">
-
         <div class="relative max-w-7xl mx-auto px-6">
-
-            <!-- Top Footer -->
             <div class="grid lg:grid-cols-2 gap-12">
-
-                <!-- Left: Logo + Description -->
                 <div>
-
                     <div class="flex items-center gap-4 mb-4">
-
                         <img src="/Assets/Logo.avif" class="w-14">
-
                         <h3 class="text-xl font-semibold leading-tight">
-                            Malayalee Association<br>
-                            of Greater Houston
+                            Malayalee Association<br>of Greater Houston
                         </h3>
-
                     </div>
-
                     <p class="text-white/80 text-sm leading-relaxed max-w-xl">
-                        MAGH is committed to preserving and promoting Kerala’s cultural heritage while
+                        MAGH is committed to preserving and promoting Kerala's cultural heritage while
                         building a strong and vibrant Malayalee community in Greater Houston through
                         meaningful events, programs, and community initiatives.
                     </p>
-
                 </div>
-
-
-                <!-- Right Links -->
                 <div class="grid grid-cols-2 sm:grid-cols-3 gap-10">
-
-                    <!-- Quick Links -->
                     <div>
-
                         <h4 class="font-semibold mb-4">Quick Links</h4>
-
                         <ul class="space-y-3 text-white/80 text-sm">
-
                             <li><a href="/index.html" class="hover:text-white">Home</a></li>
                             <li><a href="/Pages/about.html" class="hover:text-white">About</a></li>
                             <li><a href="/Events/community events.html" class="hover:text-white">Events</a></li>
                             <li><a href="/Pages/gallery.html" class="hover:text-white">Gallery</a></li>
                             <li><a href="/Pages/malayalam class.html" class="hover:text-white">Malayalam Class</a></li>
-
                         </ul>
-
                     </div>
-
-
-                    <!-- Resources -->
                     <div>
-
                         <h4 class="font-semibold mb-4">Resources</h4>
                         <ul class="space-y-3 text-white/80 text-sm">
                             <li><a href="/Pages/bod.html" class="hover:text-white">MAGH Board</a></li>
-                            <li><a href="/payments/join magh.html" class="hover:text-white">Payments</a></li>
+                            <li><a href="/payments/join magh.html" class="hover:text-white">Membership</a></li>
+                            <li><a href="/payments/join magh.html" class="hover:text-white">Sponsorship</a></li>
                             <li><a href="/Pages/video wall.html" class="hover:text-white">Video Wall</a></li>
                             <li><a href="/Pages/contact.html" class="hover:text-white">Contact</a></li>
-
                         </ul>
-
                     </div>
-
-
-                    <!-- Contact -->
                     <div>
-
                         <h4 class="font-semibold mb-4">Contact Us</h4>
-
                         <div class="space-y-3 text-white/80 text-sm">
-
-                            <p>
-                                1415 Packer Ln, Stafford,<br>
-                                TX 77477, USA
-                            </p>
-
-                            <p class="underline">
-                                secretary@maghusa.org
-                            </p>
-
-                            <p>
-                                713-515-8432
-                            </p>
-
+                            <p>1415 Packer Ln, Stafford,<br>TX 77477, USA</p>
+                            <p class="underline">secretary@maghusa.org</p>
+                            <p>713-515-8432</p>
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
-
-            <!-- Bottom Bar -->
-            <div class="border-t border-white/20 mt-12 pt-6
-flex flex-col md:flex-row items-center justify-between gap-6">
-
-                <!-- Copyright -->
+            <div class="border-t border-white/20 mt-12 pt-6 flex flex-col md:flex-row items-center justify-between gap-6">
                 <p class="text-white/80 text-sm text-center md:text-left">
                     ©2026 by Malayalee Association of Greater Houston (MAGH)
                 </p>
-
-
-                <!-- Social Section -->
                 <div class="flex items-center gap-3">
-
-                    <!-- Location Icon -->
                     <a href="/Pages/contact.html"
                         class="bg-white/20 backdrop-blur w-12 h-12 rounded-full flex items-center justify-center hover:bg-white/40 transition">
-
                         <i data-lucide="map-pin" class="w-5 h-5"></i>
-
                     </a>
-
-                    <!-- Social Icons -->
                     <div class="bg-white/20 backdrop-blur px-6 py-3 rounded-full flex items-center gap-6 text-lg">
-
                         <a href="https://www.instagram.com/maghcommunication" class="hover:scale-110 transition">
                             <i class="fa-brands fa-instagram"></i>
                         </a>
-
                         <a href="https://www.facebook.com/maghcommunication" class="hover:scale-110 transition">
                             <i class="fa-brands fa-facebook-f"></i>
                         </a>
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-
     </footer>
 
 
-
-
-
-
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        lucide.createIcons();
-    </script>
+    <script>lucide.createIcons();</script>
 
     <script>
-
         const menuBtn = document.getElementById("menuBtn")
         const mobileMenu = document.getElementById("mobileMenu")
-
-        menuBtn.onclick = () => {
-            mobileMenu.classList.toggle("hidden")
-        }
-
+        menuBtn.onclick = () => { mobileMenu.classList.toggle("hidden") }
 
         function toggleMenu(menuId) {
-
             const menus = ["eventsMenu", "paymentsMenu", "mobileEvents", "mobilePayments"]
-
             menus.forEach(id => {
-                if (id !== menuId) {
-                    document.getElementById(id)?.classList.add("hidden")
-                }
+                if (id !== menuId) document.getElementById(id)?.classList.add("hidden")
             })
-
             document.getElementById(menuId).classList.toggle("hidden")
-
         }
 
-
         document.addEventListener("click", function (e) {
-
             if (!e.target.closest(".relative")) {
                 document.getElementById("eventsMenu")?.classList.add("hidden")
                 document.getElementById("paymentsMenu")?.classList.add("hidden")
             }
-
         })
-
     </script>
 
     <script>
-
         const sections = document.querySelectorAll(".fade-section");
-
         const observer = new IntersectionObserver((entries) => {
-
             entries.forEach(entry => {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.classList.add("show");
-
-                }
-
+                if (entry.isIntersecting) entry.target.classList.add("show");
             });
-
-        }, {
-            threshold: 0.2
-        });
-
-        sections.forEach(section => {
-            observer.observe(section);
-        });
-
+        }, { threshold: 0.2 });
+        sections.forEach(section => observer.observe(section));
     </script>
-
-    <script>
-
-        window.addEventListener("load", function () {
-
-            const loader = document.getElementById("pageLoader");
-
-            loader.style.opacity = "0";
-            loader.style.transition = "opacity 0.4s ease";
-
-            setTimeout(() => {
-
-                loader.style.display = "none";
-
-            }, 400);
-
-        });
-
-    </script>
-
-
-
 
 </body>
 

@@ -115,32 +115,8 @@
                     <a href="#" class="hover:text-green-600">MAGH BOD</a>
 
 
-                    <!-- PAYMENTS DROPDOWN -->
-
-                    <div class="relative">
-
-                        <button onclick="toggleMenu('paymentsMenu')"
-                            class="flex items-center gap-1 hover:text-green-600">
-
-                            Payments
-
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7" />
-                            </svg>
-
-                        </button>
-
-                        <div id="paymentsMenu"
-                            class="hidden absolute left-0 top-full mt-2 bg-white shadow-lg rounded-lg w-56 py-2">
-
-                            <a href="/payments/join magh.html" class="block px-5 py-3 hover:bg-gray-100">Join MAGH</a>
-                            <a href="#" class="block px-5 py-3 hover:bg-gray-100">Online Payments</a>
-
-                        </div>
-
-                    </div>
+                    <a href="/payments/join magh.html" class="hover:text-green-600">Membership</a>
+                    <a href="/Pages/sponsership.html" class="hover:text-green-600">Sponsorship</a>
 
                     <a href="/Pages/video wall.html" class="hover:text-green-600">Video Wall</a>
                     <a href="/Pages/contact.html" class="hover:text-green-600">Contact</a>
@@ -213,25 +189,13 @@
                     MAGH BOD
                 </a>
 
-                <!-- MOBILE PAYMENTS -->
-                <div>
+                <a href="/payments/join magh.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">
+                    Membership
+                </a>
 
-                    <button onclick="toggleMenu('mobilePayments')"
-                        class="flex justify-between items-center w-full px-4 py-3 hover:bg-gray-100 rounded-lg">
-
-                        Payments
-                        <i data-lucide="chevron-down" class="w-4 h-4"></i>
-
-                    </button>
-
-                    <div id="mobilePayments" class="hidden pl-6 pb-2 space-y-2">
-
-                        <a href="/payments/join magh.html" class="block py-2 text-gray-600">Join MAGH</a>
-                        <a href="#" class="block py-2 text-gray-600">Online Payments</a>
-
-                    </div>
-
-                </div>
+                <a href="/Pages/sponsership.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">
+                    Sponsorship
+                </a>
 
                 <a href="/Pages/video wall.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">
                     Video Wall
@@ -327,6 +291,8 @@
 
             <!-- Event Cards -->
             <div id="eventsContainer" class="grid md:grid-cols-3 gap-8"></div>
+
+
 
         </div> <br>
 
@@ -424,7 +390,8 @@
                         <h4 class="font-semibold mb-4">Resources</h4>
                         <ul class="space-y-3 text-white/80 text-sm">
                             <li><a href="/Pages/bod.html" class="hover:text-white">MAGH Board</a></li>
-                            <li><a href="/payments/join magh.html" class="hover:text-white">Payments</a></li>
+                            <li><a href="/payments/join magh.html" class="hover:text-white">Membership</a></li>
+                            <li><a href="/payments/join magh.html" class="hover:text-white">Sponsorship</a></li>
                             <li><a href="/Pages/video wall.html" class="hover:text-white">Video Wall</a></li>
                             <li><a href="/Pages/contact.html" class="hover:text-white">Contact</a></li>
 
@@ -597,7 +564,7 @@ flex flex-col md:flex-row items-center justify-between gap-6">
 
     <script>
 
-        const API_URL = "https://script.google.com/macros/s/AKfycbx7d7M7zPfwI6eTAmLKCPbnknKlpFiuke0tIZWiFtvZd8vPgOuMD7vlctb4UruTgkXo/exec?type=previous";
+        const API_URL = "https://script.google.com/macros/s/AKfycbxPBqB_0Zsp2fmU_kzPCXDmZPNX-RHCKsvsogoVblziiTqbekjQj3p6bK5OqS7o0sy1/exec?type=previous";
 
         async function loadEvents() {
             try {
@@ -685,6 +652,89 @@ flex flex-col md:flex-row items-center justify-between gap-6">
 
     </script>
 
+
+    <!-- IMAGE MODAL -->
+    <div id="imageModal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-6">
+
+        <button onclick="closeImageModal()" class="absolute top-6 right-6 text-white text-3xl font-bold">
+            ✕
+        </button>
+
+        <img id="modalImage" class="max-w-full max-h-full rounded-lg shadow-xl">
+
+    </div>
+
+    <script>
+        function createCard(event) {
+            return `
+<div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
+
+    <div class="relative">
+
+        <img src="${event.image}" 
+             onclick="openImageModal('${event.image}')"
+             class="w-full h-60 object-cover cursor-pointer">
+
+        <div class="absolute top-4 left-4 bg-white text-gray-800 px-5 py-2 rounded-full text-sm shadow">
+            ${formatDisplayDate(event.date)}
+        </div>
+
+        <div onclick="toggleLike(this)"
+            class="absolute top-4 right-4 bg-white/80 backdrop-blur w-10 h-10 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition">
+
+            <i data-lucide="heart" class="w-5 h-5 text-gray-400"></i>
+
+        </div>
+
+    </div>
+
+    <div class="p-6">
+
+        <h3 class="text-xl font-semibold mb-3">
+            ${event.title}
+        </h3>
+
+        <p class="text-gray-600 text-sm leading-relaxed">
+            ${event.description}
+        </p>
+
+    </div>
+
+</div>
+`;
+        }
+    </script>
+
+    <script>
+        function openImageModal(src) {
+
+            const modal = document.getElementById("imageModal");
+            const img = document.getElementById("modalImage");
+
+            img.src = src;
+
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+
+        }
+
+        function closeImageModal() {
+
+            const modal = document.getElementById("imageModal");
+
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+
+        }
+    </script>
+
+    <script>
+        document.getElementById("imageModal").addEventListener("click", function (e) {
+            if (e.target.id === "imageModal") {
+                closeImageModal();
+            }
+        });
+    </script>
 
 </body>
 
