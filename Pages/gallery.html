@@ -332,13 +332,39 @@
 
 
     <script>
-        const API_URL = "https://script.google.com/macros/s/AKfycbzQGcpazQORkQ-ckQiSscSOTQcadnK4Fj1ntUBx6D7Cu5G8eNkvqGKUVGsHeVFpfNjV/exec";
+        const API_URL = "https://script.google.com/macros/s/AKfycbwvdHIdbFZBO7jCniWTDXVDRBiIrJh8nD62V56kACtWexZMBSpxTmxmb4DFZ7ehqAqE/exec";
 
         const grid = document.getElementById("galleryGrid");
 
+        // ✅ FULLSCREEN FUNCTION (YOU MISSED THIS)
+        function openFullscreen(src) {
+            let modal = document.getElementById("imgModal");
+
+            // create modal if not exists
+            if (!modal) {
+                modal = document.createElement("div");
+                modal.id = "imgModal";
+                modal.className = "fixed inset-0 bg-black/90 flex items-center justify-center z-50";
+
+                const img = document.createElement("img");
+                img.id = "modalImg";
+                img.className = "max-w-[90%] max-h-[90%] rounded-xl";
+
+                modal.appendChild(img);
+
+                // close on click
+                modal.onclick = () => modal.remove();
+
+                document.body.appendChild(modal);
+            }
+
+            document.getElementById("modalImg").src = src;
+        }
+
+        // ✅ LOAD GALLERY
         async function loadGallery() {
             try {
-                const res = await fetch(API_URL);
+                const res = await fetch(API_URL, { cache: "no-store" }); // ⚡ mobile fix
                 const data = await res.json();
 
                 console.log("Gallery Data:", data);
@@ -352,10 +378,19 @@
 
                     const img = document.createElement("img");
 
+                    // ✅ mobile-safe image
                     img.src = item.image;
-                    img.className = "w-full h-[280px] md:h-[320px] object-cover hover:scale-105 transition duration-500 cursor-pointer";
+                    img.loading = "lazy";
 
-                    // ✅ FULLSCREEN CLICK
+                    img.className = "w-full h-[220px] md:h-[320px] object-cover transition duration-500 hover:scale-105 cursor-pointer block";
+
+                    // ❗ fallback if fails
+                    img.onerror = () => {
+                        console.log("Image failed:", item.image);
+                        img.src = "https://via.placeholder.com/400x300?text=Error";
+                    };
+
+                    // ✅ click fullscreen
                     img.addEventListener("click", () => {
                         openFullscreen(item.image);
                     });
@@ -366,10 +401,14 @@
 
             } catch (err) {
                 console.error("Gallery Error:", err);
+
+                // show error UI (important for mobile debugging)
+                grid.innerHTML = `<p class="text-red-500">Failed to load images</p>`;
             }
         }
 
-        loadGallery();
+        // ✅ ensure DOM ready (important for mobile)
+        document.addEventListener("DOMContentLoaded", loadGallery);
     </script>
 
 
