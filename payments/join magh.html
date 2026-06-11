@@ -47,187 +47,235 @@
     </script>
 
     <!-- NAVBAR -->
-    <nav id="navbar" class="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
-
-        <div class="max-w-7xl mx-auto px-6">
-
-            <div class="flex justify-between items-center h-20">
+    <nav id="navbar"
+        class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-50 transition-all duration-300 border-b border-gray-100/50 px-6 sm:px-8 py-1">
+        <div class="w-full max-w-7xl mx-auto">
+            <div class="flex justify-between items-center h-16">
 
                 <!-- Logo -->
-                <a href="/index.html">
-                    <img src="/Assets/Logo.jpg" class="h-14" alt="Logo">
+                <a href="/index.html" class="flex items-center gap-3 group">
+                    <img src="/Assets/Logo.jpg"
+                        class="logo-interactive h-11 w-auto rounded-full border-2 border-emerald-100" alt="MAGH Logo">
+                    <span class="philosopher hidden lg:block text-base font-bold leading-tight text-gray-900">
+                        Malayalee Association<br><span class="text-emerald-600 font-semibold text-xs tracking-wider">OF
+                            GREATER HOUSTON</span>
+                    </span>
                 </a>
 
+                <!-- Desktop Menu (Grouped with Dropdowns) -->
+                <div class="hidden xl:flex items-center space-x-5 font-medium text-gray-700 text-sm">
 
-                <!-- Desktop Menu -->
-
-                <div class="hidden md:flex items-center space-x-7 font-medium text-gray-800">
-
-                    <a href="/index.html" class="  hover:text-green-600">
-                        Home
-                    </a>
-
-                    <a href="/Pages/about.html" class="hover:text-green-600 ">About Us</a>
-
-
-                    <!-- EVENTS DROPDOWN -->
-
-                    <div class="relative">
-
-                        <button onclick="toggleMenu('eventsMenu')" class="flex items-center gap-1 hover:text-green-600">
-
-                            Events
-
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7" />
-                            </svg>
-
+                    <!-- ABOUT DROPDOWN -->
+                    <div class="relative nav-dropdown-group">
+                        <button
+                            class="nav-dropdown-trigger flex items-center gap-1 px-4 py-2 rounded-lg shadow-sm transition">
+                            About
+                            <i data-lucide="chevron-down"
+                                class="w-3.5 h-3.5 nav-chevron transition-transform duration-300"></i>
                         </button>
-
-                        <div id="eventsMenu"
-                            class="hidden absolute left-0 top-full mt-2 bg-white shadow-lg rounded-lg w-56 py-2">
-
-                            <a href="/Events/upcoming events.html" class="block px-5 py-3 hover:bg-gray-100">Upcoming
-                                Events</a>
-                            <a href="/Events/previous events.html" class="block px-5 py-3 hover:bg-gray-100">Previous
-                                Events</a>
-                            <a href="/Events/community events.html" class="block px-5 py-3 hover:bg-gray-100">Community
-                                Events</a>
-
+                        <div
+                            class="nav-dropdown-panel absolute left-1/2 -translate-x-1/2 top-full pt-2 opacity-0 invisible transition-all duration-300 z-50">
+                            <div class="bg-white shadow-xl rounded-2xl w-56 py-2 border border-gray-100">
+                                <a href="/Pages/about.html"
+                                    class="flex items-center gap-3 px-5 py-3 hover:bg-emerald-50 hover:text-emerald-700 transition">
+                                    <i data-lucide="info" class="w-4 h-4 text-emerald-500"></i> About Us
+                                </a>
+                                <a href="/Pages/bod.html"
+                                    class="flex items-center gap-3 px-5 py-3 hover:bg-emerald-50 hover:text-emerald-700 transition">
+                                    <i data-lucide="users" class="w-4 h-4 text-emerald-500"></i> MAGH BOD
+                                </a>
+                                <a href="/Pages/contact.html"
+                                    class="flex items-center gap-3 px-5 py-3 hover:bg-emerald-50 hover:text-emerald-700 transition">
+                                    <i data-lucide="mail" class="w-4 h-4 text-emerald-500"></i> Contact
+                                </a>
+                            </div>
                         </div>
-
                     </div>
 
+                    <!-- EVENTS DROPDOWN -->
+                    <div class="relative nav-dropdown-group">
+                        <button
+                            class="nav-dropdown-trigger flex items-center gap-1 hover:text-emerald-600 py-2 transition">
+                            Events
+                            <i data-lucide="chevron-down"
+                                class="w-3.5 h-3.5 nav-chevron transition-transform duration-300"></i>
+                        </button>
+                        <div
+                            class="nav-dropdown-panel absolute left-1/2 -translate-x-1/2 top-full pt-2 opacity-0 invisible transition-all duration-300 z-50">
+                            <div class="bg-white shadow-xl rounded-2xl w-56 py-2 border border-gray-100">
+                                <a href="/Events/upcoming events.html"
+                                    class="flex items-center gap-3 px-5 py-3 hover:bg-emerald-50 hover:text-emerald-700 transition">
+                                    <i data-lucide="calendar" class="w-4 h-4 text-emerald-500"></i> Upcoming Events
+                                </a>
+                                <a href="/Events/previous events.html"
+                                    class="flex items-center gap-3 px-5 py-3 hover:bg-emerald-50 hover:text-emerald-700 transition">
+                                    <i data-lucide="clock" class="w-4 h-4 text-emerald-500"></i> Previous Events
+                                </a>
+                                <a href="/Events/community events.html"
+                                    class="flex items-center gap-3 px-5 py-3 hover:bg-emerald-50 hover:text-emerald-700 transition">
+                                    <i data-lucide="heart" class="w-4 h-4 text-emerald-500"></i> Community Events
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
-                    <a href="/Pages/gallery.html" class="hover:text-green-600">Gallery</a>
-                    <a href="/Pages/malayalam class.html" class="hover:text-green-600">Malayalam Class</a>
-                    <a href="/Pages/bod.html" class="hover:text-green-600">MAGH BOD</a>
+                    <!-- COMMUNITY DROPDOWN -->
+                    <div class="relative nav-dropdown-group">
+                        <button
+                            class="nav-dropdown-trigger flex items-center gap-1  hover:text-emerald-600 py-2 transition   bg-emerald-600 text-white px-4 py-2 rounded-lg shadow-sm hover:bg-emerald-700 transition">
+                            Community
+                            <i data-lucide="chevron-down"
+                                class="w-3.5 h-3.5 nav-chevron transition-transform duration-300"></i>
+                        </button>
+                        <div
+                            class="nav-dropdown-panel absolute left-1/2 -translate-x-1/2 top-full pt-2 opacity-0 invisible transition-all duration-300 z-50">
+                            <div class="bg-white shadow-xl rounded-2xl w-56 py-2 border border-gray-100">
+                                <a href="/Pages/malayalam class.html"
+                                    class="flex items-center gap-3 px-5 py-3 hover:bg-emerald-50 hover:text-emerald-700 transition">
+                                    <i data-lucide="book-open" class="w-4 h-4 text-emerald-500"></i> Malayalam Class
+                                </a>
+                                <a href="/payments/join magh.html"
+                                    class="flex items-center gap-3 px-5 py-3 hover:bg-emerald-50 hover:text-emerald-700 transition">
+                                    <i data-lucide="user-plus" class="w-4 h-4 text-emerald-500"></i> Membership
+                                </a>
+                                <a href="/Pages/sponsership.html"
+                                    class="flex items-center gap-3 px-5 py-3 hover:bg-emerald-50 hover:text-emerald-700 transition">
+                                    <i data-lucide="award" class="w-4 h-4 text-emerald-500"></i> Sponsorship
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
-
-                    <a href="/payments/join magh.html" class="bg-green-600 text-white px-5 py-2 rounded-full">Membership</a>
-                    <a href="/Pages/sponsership.html" class="hover:text-green-600">Sponsorship</a>
-
-                    <a href="/Pages/video wall.html" class="hover:text-green-600">Video Wall</a>
-                    <a href="/Pages/contact.html" class="hover:text-green-600">Contact</a>
-
+                    <!-- MEDIA DROPDOWN -->
+                    <div class="relative nav-dropdown-group">
+                        <button
+                            class="nav-dropdown-trigger flex items-center gap-1 hover:text-emerald-600 py-2 transition">
+                            Media
+                            <i data-lucide="chevron-down"
+                                class="w-3.5 h-3.5 nav-chevron transition-transform duration-300"></i>
+                        </button>
+                        <div
+                            class="nav-dropdown-panel absolute left-1/2 -translate-x-1/2 top-full pt-2 opacity-0 invisible transition-all duration-300 z-50">
+                            <div class="bg-white shadow-xl rounded-2xl w-56 py-2 border border-gray-100">
+                                <a href="/Pages/gallery.html"
+                                    class="flex items-center gap-3 px-5 py-3 hover:bg-emerald-50 hover:text-emerald-700 transition">
+                                    <i data-lucide="image" class="w-4 h-4 text-emerald-500"></i> Gallery
+                                </a>
+                                <a href="/Pages/video wall.html"
+                                    class="flex items-center gap-3 px-5 py-3 hover:bg-emerald-50 hover:text-emerald-700 transition">
+                                    <i data-lucide="play-circle" class="w-4 h-4 text-emerald-500"></i> Video Wall
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-
-                <!-- Mobile Button -->
-                <button id="menuBtn" class="md:hidden">
-
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16" />
-
-                    </svg>
-
+                <!-- Mobile Morphing Hamburger Button -->
+                <button id="menuBtn" class="hamburger-btn xl:hidden" aria-label="Toggle menu">
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
                 </button>
 
             </div>
-
         </div>
 
+        <!-- MOBILE MENU (FULL-WIDTH DROPDOWN) -->
+        <div id="mobileMenu"
+            class="hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100 p-6 z-40 max-h-[calc(100vh-80px)] overflow-y-auto">
+            <div class="space-y-1 text-gray-700 font-medium">
 
-        <!-- MOBILE MENU -->
-        <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
 
-            <div class="px-6 py-4 space-y-2 text-gray-800 font-medium">
-
-                <a href="/index.html" class="  block px-4 py-3 hover:bg-gray-100 rounded-lg">
-                    Home
-                </a>
-
-                <a href="/Pages/about.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">
-                    About Us
-                </a>
-
-                <!-- MOBILE EVENTS -->
-                <div>
-
-                    <button onclick="toggleMenu('mobileEvents')"
-                        class="flex justify-between items-center w-full px-4 py-3 hover:bg-gray-100 rounded-lg">
-
-                        Events
-                        <i data-lucide="chevron-down" class="w-4 h-4"></i>
-
+                <!-- MOBILE ABOUT -->
+                <div class="border-b border-gray-50 pb-1">
+                    <button onclick="toggleMenu('mobileAbout')"
+                        class="flex justify-between items-center w-full px-4 py-3 hover:bg-gray-50 rounded-2xl transition">
+                        About
+                        <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
                     </button>
-
-                    <div id="mobileEvents" class="hidden pl-6 pb-2 space-y-2">
-
-                        <a href="/Events/upcoming events.html" class="block py-2 text-gray-600">Upcoming Events</a>
-                        <a href="/Events/previous events.html" class="block py-2 text-gray-600">Previous Events</a>
-                        <a href="/Events/community events.html" class="block py-2 text-gray-600">Community Events</a>
-
+                    <div id="mobileAbout" class="hidden pl-6 pb-2 space-y-1">
+                        <a href="/Pages/about.html"
+                            class="flex items-center gap-3 py-2.5 px-4 text-gray-600 hover:text-emerald-600 rounded-xl">
+                            <i data-lucide="info" class="w-4 h-4 text-emerald-400"></i> About Us
+                        </a>
+                        <a href="/Pages/bod.html"
+                            class="flex items-center gap-3 py-2.5 px-4 text-gray-600 hover:text-emerald-600 rounded-xl">
+                            <i data-lucide="users" class="w-4 h-4 text-emerald-400"></i> MAGH BOD
+                        </a>
+                        <a href="/Pages/contact.html"
+                            class="flex items-center gap-3 py-2.5 px-4 text-gray-600 hover:text-emerald-600 rounded-xl">
+                            <i data-lucide="mail" class="w-4 h-4 text-emerald-400"></i> Contact
+                        </a>
                     </div>
-
                 </div>
 
-                <a href="/Pages/gallery.html" class=" block px-4 py-3 hover:bg-gray-100 rounded-lg ">
-                    Gallery
-                </a>
+                <!-- MOBILE EVENTS -->
+                <div class="border-b border-gray-50 pb-1">
+                    <button onclick="toggleMenu('mobileEvents')"
+                        class="flex justify-between items-center w-full px-4 py-3 hover:bg-gray-50 rounded-2xl transition">
+                        Events
+                        <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
+                    </button>
+                    <div id="mobileEvents" class="hidden pl-6 pb-2 space-y-1">
+                        <a href="/Events/upcoming events.html"
+                            class="flex items-center gap-3 py-2.5 px-4 text-gray-600 hover:text-emerald-600 rounded-xl">
+                            <i data-lucide="calendar" class="w-4 h-4 text-emerald-400"></i> Upcoming Events
+                        </a>
+                        <a href="/Events/previous events.html"
+                            class="flex items-center gap-3 py-2.5 px-4 text-gray-600 hover:text-emerald-600 rounded-xl">
+                            <i data-lucide="clock" class="w-4 h-4 text-emerald-400"></i> Previous Events
+                        </a>
+                        <a href="/Events/community events.html"
+                            class="flex items-center gap-3 py-2.5 px-4 text-gray-600 hover:text-emerald-600 rounded-xl">
+                            <i data-lucide="heart" class="w-4 h-4 text-emerald-400"></i> Community Events
+                        </a>
+                    </div>
+                </div>
 
-                <a href="/Pages/malayalam class.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">
-                    Malayalam Class
-                </a>
+                <!-- MOBILE COMMUNITY -->
+                <div class="border-b border-gray-50 pb-1">
+                    <button onclick="toggleMenu('mobileCommunity')"
+                        class="flex justify-between items-center w-full px-4 py-3 hover:bg-gray-50 rounded-2xl transition">
+                        Community
+                        <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
+                    </button>
+                    <div id="mobileCommunity" class="hidden pl-6 pb-2 space-y-1">
+                        <a href="/Pages/malayalam class.html"
+                            class="flex items-center gap-3 py-2.5 px-4 text-gray-600 hover:text-emerald-600 rounded-xl">
+                            <i data-lucide="book-open" class="w-4 h-4 text-emerald-400"></i> Malayalam Class
+                        </a>
+                        <a href="/payments/join magh.html"
+                            class="flex items-center gap-3 py-2.5 px-4 text-gray-600 hover:text-emerald-600 rounded-xl">
+                            <i data-lucide="user-plus" class="w-4 h-4 text-emerald-400"></i> Membership
+                        </a>
+                        <a href="/Pages/sponsership.html"
+                            class="flex items-center gap-3 py-2.5 px-4 text-gray-600 hover:text-emerald-600 rounded-xl">
+                            <i data-lucide="award" class="w-4 h-4 text-emerald-400"></i> Sponsorship
+                        </a>
+                    </div>
+                </div>
 
-                <a href="/Pages/bod.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">
-                    MAGH BOD
-                </a>
-
-                <a href="/payments/join magh.html" class="block bg-green-600 text-white px-4 py-3 rounded-lg">
-                    Membership
-                </a>
-
-                <a href="/Pages/sponsership.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">
-                    Sponsorship
-                </a>
-
-                <a href="/Pages/video wall.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg">
-                    Video Wall
-                </a>
-
-                <a href="/Pages/contact.html" class="block px-4 py-3 hover:bg-gray-100 rounded-lg  ">
-                    Contact
-                </a>
-
+                <!-- MOBILE MEDIA -->
+                <div class="border-b border-gray-50 pb-1">
+                    <button onclick="toggleMenu('mobileMedia')"
+                        class="flex justify-between items-center w-full px-4 py-3 hover:bg-gray-50 rounded-2xl transition">
+                        Media
+                        <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
+                    </button>
+                    <div id="mobileMedia" class="hidden pl-6 pb-2 space-y-1">
+                        <a href="/Pages/gallery.html"
+                            class="flex items-center gap-3 py-2.5 px-4 text-gray-600 hover:text-emerald-600 rounded-xl">
+                            <i data-lucide="image" class="w-4 h-4 text-emerald-400"></i> Gallery
+                        </a>
+                        <a href="/Pages/video wall.html"
+                            class="flex items-center gap-3 py-2.5 px-4 text-gray-600 hover:text-emerald-600 rounded-xl">
+                            <i data-lucide="play-circle" class="w-4 h-4 text-emerald-400"></i> Video Wall
+                        </a>
+                    </div>
+                </div>
             </div>
-
         </div>
-
     </nav>
-
-    <script>
-        let lastScroll = 0;
-        const navbar = document.getElementById("navbar");
-
-        window.addEventListener("scroll", () => {
-
-            const currentScroll = window.scrollY; // ✅ Safari safe
-
-            // ✅ Always show navbar at top
-            if (currentScroll <= 0) {
-                navbar.style.transform = "translateY(0)";
-                return;
-            }
-
-            // ✅ Scroll Down → Hide
-            if (currentScroll > lastScroll) {
-                navbar.style.transform = "translateY(-100%)";
-            }
-            // ✅ Scroll Up → Show
-            else {
-                navbar.style.transform = "translateY(0)";
-            }
-
-            lastScroll = currentScroll;
-
-        });
-    </script>
 
 
 
@@ -574,6 +622,80 @@ flex flex-col md:flex-row items-center justify-between gap-6">
     </script>
 
 
+    <script>
+        // Init Lucide icons
+        lucide.createIcons();
+
+        // Page Loader Close
+        window.addEventListener("load", function () {
+            const loader = document.getElementById("loader");
+            loader.style.opacity = "0";
+            loader.style.transition = "opacity 0.4s ease";
+            setTimeout(() => {
+                loader.style.display = "none";
+            }, 400);
+        });
+
+        // Hide Navbar on Scroll
+        let lastScroll = 0;
+        const navbar = document.getElementById("navbar");
+        window.addEventListener("scroll", () => {
+            const currentScroll = window.scrollY;
+            if (currentScroll <= 80) {
+                navbar.style.transform = "translateY(0)";
+                return;
+            }
+            if (currentScroll > lastScroll) {
+                navbar.style.transform = "translateY(-100%)";
+            } else {
+                navbar.style.transform = "translateY(0)";
+            }
+            lastScroll = currentScroll;
+        });
+
+        // Toggle mobile dropdown/menus (accordion style)
+        function toggleMenu(menuId) {
+            const allMobileMenus = ["mobileAbout", "mobileEvents", "mobileCommunity", "mobileMedia"];
+            allMobileMenus.forEach(id => {
+                if (id !== menuId) {
+                    document.getElementById(id)?.classList.add("hidden");
+                }
+            });
+            const targeted = document.getElementById(menuId);
+            if (targeted) {
+                targeted.classList.toggle("hidden");
+            }
+        }
+
+        // Desktop hover dropdown logic
+        document.querySelectorAll(".nav-dropdown-group").forEach(group => {
+            const panel = group.querySelector(".nav-dropdown-panel");
+            const chevron = group.querySelector(".nav-chevron");
+            let timeout;
+
+            group.addEventListener("mouseenter", () => {
+                clearTimeout(timeout);
+                if (panel) {
+                    panel.style.opacity = "1";
+                    panel.style.visibility = "visible";
+                    panel.style.transform = "translate(-50%, 0)";
+                }
+                if (chevron) chevron.style.transform = "rotate(180deg)";
+            });
+
+            group.addEventListener("mouseleave", () => {
+                timeout = setTimeout(() => {
+                    if (panel) {
+                        panel.style.opacity = "0";
+                        panel.style.visibility = "hidden";
+                        panel.style.transform = "translate(-50%, 8px)";
+                    }
+                    if (chevron) chevron.style.transform = "rotate(0deg)";
+                }, 150);
+            });
+        });
+
+    </script>
 
 
 </body>

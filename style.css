@@ -12,6 +12,8 @@ html {
     scroll-behavior: smooth;
 }
 
+@import "tailwindcss";
+
 /* ================= GLOBAL ================= */
 @import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300;400;500;600;700&display=swap');
 
@@ -47,15 +49,7 @@ body {
     }
 }
 
-.nav-hide {
-    transform: translateY(-100%);
-    transition: transform 0.3s ease;
-}
 
-.nav-show {
-    transform: translateY(0);
-    transition: transform 0.3s ease;
-}
 
 /* fade animation */
 
@@ -101,4 +95,341 @@ body {
     100% {
         transform: rotate(360deg);
     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ================= CSS RESET ================= */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ================= ROOT & GLOBAL ================= */
+html {
+    scroll-behavior: smooth;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&display=swap');
+
+body {
+    font-family: 'Parkinsans', sans-serif;
+    color: #1f2937;
+    background-color: #f3f4f6;
+    /* Modern cool grey bg */
+    overflow-x: hidden;
+}
+
+.philosopher {
+    font-family: 'Philosopher', serif;
+}
+
+.font {
+    font-family: 'Parkinsans', sans-serif;
+}
+
+/* ================= MODERN ANIMATIONS & EFFECTS ================= */
+
+/* Navigation Link hover glow effect */
+.nav-link {
+    position: relative;
+    transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #10b981;
+    /* emerald-500 */
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+}
+
+.nav-link:hover {
+    color: #10b981;
+}
+
+/* Hero Carousel Styles */
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1), transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: scale(1.08);
+    z-index: 0;
+}
+
+.hero-slide.active {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 10;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.08);
+}
+
+
+
+
+/* Text animation for Hero Section */
+.animate-text-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.active .animate-text-up {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 {
+    transition-delay: 0.15s;
+}
+
+.delay-2 {
+    transition-delay: 0.3s;
+}
+
+.delay-3 {
+    transition-delay: 0.45s;
+}
+
+/* Custom Glassmorphism Bento Cards */
+.bento-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bento-card:hover {
+    transform: translateY(-6px);
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    /* Emerald border highlight on hover */
+    box-shadow: 0 10px 40px rgba(16, 185, 129, 0.08);
+}
+
+.glass-pill {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Scroll Fade Section with refined physics */
+.fade-section {
+    opacity: 0;
+    transform: translateY(50px) scale(0.98);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-section.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Custom page loader styling */
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.loader {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #e5e5e5;
+    border-top: 4px solid #10b981;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Smooth zoom on hover */
+.zoom-hover {
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.zoom-hover:hover {
+    transform: scale(1.03);
+}
+
+/* Pulse animation for CTA */
+.btn-pulse {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px rgba(16, 185, 129, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+    }
+}
+
+/* ================= MORPHING HAMBURGER BUTTON ================= */
+.hamburger-btn {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 8px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    border-radius: 12px;
+    transition: background 0.3s ease;
+    z-index: 50;
+}
+
+.hamburger-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.hamburger-bar {
+    display: block;
+    width: 24px;
+    height: 2.5px;
+    background-color: #1f2937;
+    border-radius: 2px;
+    transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    transform-origin: center center;
+}
+
+.hamburger-bar:nth-child(1) {
+    transform: translateY(-7px);
+}
+
+.hamburger-bar:nth-child(2) {
+    transform: translateY(0);
+}
+
+.hamburger-bar:nth-child(3) {
+    transform: translateY(7px);
+}
+
+/* Active state — morph to ✕ */
+.hamburger-btn.active .hamburger-bar:nth-child(1) {
+    transform: translateY(0) rotate(45deg);
+}
+
+.hamburger-btn.active .hamburger-bar:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.hamburger-btn.active .hamburger-bar:nth-child(3) {
+    transform: translateY(0) rotate(-45deg);
+}
+
+/* ================= INTERACTIVE LOGO HOVER ================= */
+.logo-interactive {
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.4s ease;
+    will-change: transform, box-shadow;
+}
+
+.logo-interactive:hover {
+    transform: scale(1.12) rotate(8deg);
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.25),
+        0 0 20px rgba(16, 185, 129, 0.15);
+    border-color: #10b981;
+}
+
+/* ================= DESKTOP DROPDOWN PANELS ================= */
+.nav-dropdown-panel {
+    transform: translate(-50%, 8px);
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+        visibility 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-dropdown-trigger {
+    position: relative;
+}
+
+.nav-dropdown-trigger::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #10b981;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-dropdown-group:hover .nav-dropdown-trigger::after {
+    transform: scaleX(1);
+}
+
+.nav-dropdown-group:hover .nav-dropdown-trigger {
+    color: #10b981;
 }
