@@ -15,26 +15,37 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+
 </head>
 
 <body class="bg-white">
 
     <!-- PAGE LOADER -->
     <div id="loader" class="fixed inset-0 bg-white flex items-center justify-center z-[9999]">
+
         <div class="flex flex-col items-center gap-6">
+
+
+
+            <!-- LOADING SPINNER -->
             <div class="w-10 h-10 border-4 border-gray-200 border-t-[#0AB30F] rounded-full animate-spin"></div>
+
         </div>
+
     </div>
+
 
     <script>
         window.addEventListener("load", function () {
             const loader = document.getElementById("loader");
             loader.style.opacity = "0";
             loader.style.transition = "opacity 0.5s ease";
-            setTimeout(() => { loader.style.display = "none"; }, 500);
+
+            setTimeout(() => {
+                loader.style.display = "none";
+            }, 500);
         });
     </script>
-
     <!-- NAVBAR -->
     <nav id="navbar"
         class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-50 transition-all duration-300 border-b border-gray-100/50 px-6 sm:px-8 py-1">
@@ -138,7 +149,7 @@
                     <!-- MEDIA DROPDOWN -->
                     <div class="relative nav-dropdown-group">
                         <button
-                            class="nav-dropdown-trigger flex items-center gap-1 hover:text-emerald-600 py-2 transition">
+                            class="nav-dropdown-trigger flex items-center gap-1  hover:text-emerald-600 py-2 transition  px-4 py-2 rounded-lg shadow-sm hover:bg-emerald-700 transition">
                             Media
                             <i data-lucide="chevron-down"
                                 class="w-3.5 h-3.5 nav-chevron transition-transform duration-300"></i>
@@ -159,10 +170,10 @@
                     </div>
 
 
-                    <!-- MEDIA LINK -->
+                    <!-- ONAM TICKET LINK -->
                     <div class="relative nav-dropdown-group">
                         <a href="/Pages/onam.html"
-                            class="nav-dropdown-trigger flex items-center gap-1 hover:text-emerald-600 py-2 transition">
+                            class="nav-dropdown-trigger flex items-center gap-1 bg-emerald-600 text-white px-4 py-2 rounded-lg shadow-sm hover:bg-emerald-700 transition">
                             Onam Ticket
                         </a>
                     </div>
@@ -271,13 +282,11 @@
                     </div>
                 </div>
 
-
-
                 <!-- Onam Tickets -->
                 <div class="border-b border-gray-50 pb-1">
                     <a href="/Pages/onam.html"
                         class="flex justify-between items-center w-full px-4 py-3 hover:bg-gray-50 rounded-2xl transition">
-                        <span>Onam Ticket</span>
+                        <span>Onam Tickets</span>
                         <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </a>
                 </div>
@@ -285,335 +294,245 @@
         </div>
     </nav>
 
-    <!-- BANNER -->
+
+
+    <!--BANNER -->
     <section class="relative w-full h-[220px] sm:h-[260px] md:h-[300px] mt-20 overflow-hidden">
-        <img src="/Assets/Gallry.jpg" alt="About MAGH" class="absolute inset-0 w-full h-full object-cover">
+
+        <!-- Background Image -->
+        <img src="/Assets/Onam.jpg" alt="About MAGH" class="absolute inset-0 w-full h-full object-cover">
+
+        <!-- Overlay -->
         <div class="absolute inset-0 bg-black/30"></div>
+
+        <!-- Center Text -->
         <div class="relative h-full flex items-center justify-center">
+
             <h3 class="text-3xl md:text-4xl text-white mb-6">
-                About <span class="font-bold">Magh</span>
+                Magh <span class="font-bold">Onam Ticket</span>
             </h3>
+
         </div>
+
     </section>
 
 
-    <!-- ABOUT SECTION -->
-    <section class="fade-section">
+
+    <!-- GALLERY SECTION -->
+    <section class="fade-section py-10">
+
         <div class="max-w-7xl mx-auto px-6">
-            <div class="mt-10">
 
-                <h3 class="text-3xl md:text-4xl font-light text-gray-900 mb-3">
-                    40 Years of MAGH and Its History – A Proud Milestone for the
-                    <span class="font-bold">Malayalee Community</span>
-                </h3>
+            <!-- Top Row -->
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
 
-                <p class="text-black leading-relaxed">
-                    Since 1986, Malayalees who migrated to Houston recognized the need for a unified platform to
-                    preserve their cultural identity and stay connected. Under the visionary leadership of Sri K. H.
-                    Philip (President) and other pioneers, the foundation was laid for what would later become the
-                    Malayalee Association of Greater Houston (MAGH)—a cornerstone for cultural, social, and community
-                    engagement.
-                </p><br>
+                <!-- Left Content -->
+                <div>
 
-                <!-- Label -->
-                <div
-                    class="inline-flex items-center bg-[#79F200]/20 text-[#1C8E00] text-sm font-medium px-4 py-1 rounded-full mb-4">
-                    <span class="w-2 h-2 bg-[#1C8E00] rounded-full mr-2"></span>
-                    Early Years &amp; Formation
-                </div><br>
+                    <!-- Label -->
+                    <div
+                        class="inline-flex items-center bg-[#79F200]/20 text-[#1C8E00] text-sm font-medium px-4 py-1 rounded-full mb-4">
+                        <span class="w-2 h-2 bg-[#1C8E00] rounded-full mr-2"></span>
+                        Onam Tickets
+                    </div>
 
-                <p class="text-black leading-relaxed">
-                    In the early 1980s, Malayalees in Houston began organizing informal gatherings to stay connected.
-                    By 1983, structured efforts emerged through the formation of the Kerala Club, marking the beginning
-                    of organized community activities. In 1986, these efforts culminated in the formation of a formal
-                    association that united Malayalees under one umbrella. From its inception, MAGH focused on
-                    preserving Malayalam language, cultural traditions, and community unity among expatriates.
-                </p><br>
+                    <!-- Heading -->
+                    <h3 class="text-3xl md:text-4xl font-light text-gray-900 mb-2">
+                        Book Your <span class="font-bold">Onam Ticket</span>
+                    </h3>
 
-                <!-- Label -->
-                <div
-                    class="inline-flex items-center bg-[#79F200]/20 text-[#1C8E00] text-sm font-medium px-4 py-1 rounded-full mb-4">
-                    <span class="w-2 h-2 bg-[#1C8E00] rounded-full mr-2"></span>
-                    Growth &amp; Activities
-                </div><br>
+                    <!-- Description -->
+                    <p class="text-gray-700">
+                        Celebrate the spirit of Onam with the Malayalee Association of Greater Houston. Reserve your
+                        tickets today and join us for an unforgettable evening filled with traditional Kerala cuisine,
+                        cultural performances, music, dance, games, and festive celebrations with family and friends.
+                    </p><br>
 
-                <p class="text-black leading-relaxed">
-                    Over the years, MAGH expanded significantly, offering a wide range of programs and initiatives,
-                    including:
-                </p>
-                <ul class="list-none mt-2 mb-4 space-y-2">
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
-                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Cultural programs and
-                        stage performances</li>
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
-                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Onam and other
-                        traditional festival celebrations</li>
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
-                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Sports tournaments and
-                        recreational activities</li>
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
-                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Community service and
-                        charity initiatives</li>
-                </ul>
-                <p class="text-black leading-relaxed">
-                    With steadily increasing membership, MAGH evolved into a central hub for the Malayalee community in
-                    Houston.
-                </p><br>
+                    <!-- Ticket Tailor Widget. Paste this into your website where you want the widget to appear. Do not change the code or the widget may not work properly. -->
+                    <div class="tt-widget">
+                        <div class="tt-widget-fallback">
+                            <p><a href="https://www.tickettailor.com/all-tickets/magh/?ref=website_widget&show_search_filter=true&show_date_filter=true&show_sort=true"
+                                    target="_blank">Click here to buy tickets</a><br /><small><a
+                                        href="https://www.tickettailor.com?rf=wdg_324682" class="tt-widget-powered">Sell
+                                        tickets online with Ticket Tailor</a></small></p>
+                        </div>
+                        <script src="https://cdn.tickettailor.com/js/widgets/min/widget.js"
+                            data-url="https://www.tickettailor.com/all-tickets/magh/?ref=website_widget&show_search_filter=true&show_date_filter=true&show_sort=true"
+                            data-type="inline" data-inline-minimal="true" data-inline-show-logo="false"
+                            data-inline-bg-fill="false" data-inline-inherit-ref-from-url-param=""
+                            data-inline-ref="website_widget"></script>
+                    </div><!-- End of Ticket Tailor Widget -->
 
-                <!-- Label -->
-                <div
-                    class="inline-flex items-center bg-[#79F200]/20 text-[#1C8E00] text-sm font-medium px-4 py-1 rounded-full mb-4">
-                    <span class="w-2 h-2 bg-[#1C8E00] rounded-full mr-2"></span>
-                    Leadership &amp; Contributions
-                </div><br>
 
-                <p class="text-black leading-relaxed">
-                    The success of MAGH is deeply rooted in the dedication of its leaders and volunteers.
-                </p>
-                <ul class="list-none mt-2 mb-4 space-y-2">
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
-                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Successive leadership
-                        teams ensured strong governance through elected committees</li>
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
-                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Volunteers contributed
-                        selflessly toward the growth and sustainability of the organization</li>
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
-                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Numerous individuals
-                        played pivotal roles in building a strong and lasting foundation</li>
-                </ul><br>
 
-                <!-- Label -->
-                <div
-                    class="inline-flex items-center bg-[#79F200]/20 text-[#1C8E00] text-sm font-medium px-4 py-1 rounded-full mb-4">
-                    <span class="w-2 h-2 bg-[#1C8E00] rounded-full mr-2"></span>
-                    Major Milestones
-                </div><br>
+                </div>
 
-                <p class="text-black leading-relaxed">
-                    MAGH has consistently delivered impactful and memorable events, including:
-                </p>
-                <ul class="list-none mt-2 mb-4 space-y-2">
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
-                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Grand Onam celebrations
-                    </li>
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
-                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Arts and cultural
-                        programs</li>
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
-                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Sports tournaments and
-                        community gatherings</li>
-                </ul>
-                <p class="text-black leading-relaxed">
-                    The organization has earned recognition for actively promoting Malayalam language, arts, and
-                    heritage,
-                    while also engaging in charitable and community welfare initiatives.
-                </p><br>
 
-                <!-- Label -->
-                <div
-                    class="inline-flex items-center bg-[#79F200]/20 text-[#1C8E00] text-sm font-medium px-4 py-1 rounded-full mb-4">
-                    <span class="w-2 h-2 bg-[#1C8E00] rounded-full mr-2"></span>
-                    Community Impact
-                </div><br>
 
-                <p class="text-black leading-relaxed">
-                    MAGH has played a vital role in strengthening the Malayalee diaspora by serving as:
-                </p>
-                <ul class="list-none mt-2 mb-4 space-y-2">
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
-                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>A cultural bridge for
-                        second-generation Malayalees</li>
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
-                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>A support system for new
-                        immigrants</li>
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
-                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>A platform for unity,
-                        identity, and belonging</li>
-                </ul><br>
-
-                <!-- Label -->
-                <div
-                    class="inline-flex items-center bg-[#79F200]/20 text-[#1C8E00] text-sm font-medium px-4 py-1 rounded-full mb-4">
-                    <span class="w-2 h-2 bg-[#1C8E00] rounded-full mr-2"></span>
-                    Recent Years &amp; Continued Progress
-                </div><br>
-
-                <p class="text-black leading-relaxed">
-                    Adapting to changing times, MAGH continues to grow with:
-                </p>
-                <ul class="list-none mt-2 mb-4 space-y-2">
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
-                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Innovative programs and
-                        events</li>
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
-                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Increased youth
-                        engagement and leadership opportunities</li>
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
-                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Educational, cultural,
-                        and social initiatives</li>
-                </ul>
-                <p class="text-black leading-relaxed">
-                    Today, MAGH stands as one of the largest Malayalee associations in the United States,
-                    with a membership of over 4,600 members.
-                </p><br>
-                <p class="text-black leading-relaxed">
-                    The organization also boasts significant infrastructure:
-                </p>
-                <ul class="list-none mt-2 mb-4 space-y-2">
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
-                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>1.82 acres of owned
-                        property, with plans to expand by an additional 1.5 acres</li>
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
-                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Kerala House (Main Hall)
-                        – accommodating up to 200 people</li>
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
-                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Recreational Center – a
-                        multi-purpose facility, widely used for badminton and indoor activities</li>
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
-                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Cricket batting cage and
-                        pitch, supporting the growing interest in cricket within the community</li>
-                </ul><br>
-
-                <!-- Label -->
-                <div
-                    class="inline-flex items-center bg-[#79F200]/20 text-[#1C8E00] text-sm font-medium px-4 py-1 rounded-full mb-4">
-                    <span class="w-2 h-2 bg-[#1C8E00] rounded-full mr-2"></span>
-                    Conclusion
-                </div><br>
-
-                <p class="text-black leading-relaxed">
-                    MAGH stands today as a proud symbol of:
-                </p>
-                <ul class="list-none mt-2 mb-4 space-y-2">
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
-                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Unity</li>
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
-                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Cultural Pride</li>
-                    <li class="flex items-start gap-2 text-black leading-relaxed"><span
-                            class="mt-1.5 w-2 h-2 min-w-[8px] bg-[#1C8E00] rounded-full"></span>Community Strength</li>
-                </ul>
-                <p class="text-black leading-relaxed">
-                    Its remarkable journey—from small informal gatherings to a thriving, influential
-                    organization—reflects
-                    the vision, dedication, and collective spirit of the Houston Malayalee community.
-                </p><br>
 
             </div>
+
         </div>
-    </section>
 
+        <!-- IMAGES SECTION -->
+        <section class="py-10">
 
-    <!-- AUTOSLIDER SECTION -->
-    <section class="fade-section max-w-7xl mx-auto px-4 py-3">
-        <div class="relative overflow-hidden rounded-3xl">
-            <div id="slider" class="relative h-[320px] sm:h-[420px] md:h-[520px] lg:h-[600px]">
-                <img src="/Assets/Street.jpg"
-                    class="slide absolute inset-0 w-full h-full object-cover opacity-0 scale-110 transition-all duration-1000">
-                <img src="/Assets/Street.jpg"
-                    class="slide absolute inset-0 w-full h-full object-cover opacity-0 scale-110 transition-all duration-1000">
-                <img src="/Assets/evening.jpg"
-                    class="slide absolute inset-0 w-full h-full object-cover opacity-0 scale-110 transition-all duration-1000">
+            <div class="max-w-7xl mx-auto px-6">
+
+                <!-- DYNAMIC GALLERY GRID -->
+                <div id="galleryGrid" class="grid md:grid-cols-2 gap-6"></div>
+
             </div>
-            <button onclick="prevSlide()" class="absolute left-5 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full
-                bg-white/20 backdrop-blur-md border border-white/30
-                flex items-center justify-center text-white
-                hover:bg-white/30 transition duration-300">
-                <i data-lucide="arrow-left" class="w-6 h-6"></i>
-            </button>
-            <button onclick="nextSlide()" class="absolute right-5 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full
-                bg-white/20 backdrop-blur-md border border-white/30
-                flex items-center justify-center text-white
-                hover:bg-white/30 transition duration-300">
-                <i data-lucide="arrow-right" class="w-6 h-6"></i>
-            </button>
-        </div>
+
+        </section>
+
     </section>
+
 
     <script>
-        let currentSlide = 0
-        const slides = document.querySelectorAll(".slide")
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.style.opacity = i === index ? "1" : "0"
-                slide.style.transform = i === index ? "scale(1)" : "scale(1.1)"
-            })
+        const API_URL = "https://script.google.com/macros/s/AKfycbwvdHIdbFZBO7jCniWTDXVDRBiIrJh8nD62V56kACtWexZMBSpxTmxmb4DFZ7ehqAqE/exec";
+
+        const grid = document.getElementById("galleryGrid");
+
+        // ✅ FULLSCREEN FUNCTION (YOU MISSED THIS)
+        function openFullscreen(src) {
+            let modal = document.getElementById("imgModal");
+
+            // create modal if not exists
+            if (!modal) {
+                modal = document.createElement("div");
+                modal.id = "imgModal";
+                modal.className = "fixed inset-0 bg-black/90 flex items-center justify-center z-50";
+
+                const img = document.createElement("img");
+                img.id = "modalImg";
+                img.className = "max-w-[90%] max-h-[90%] rounded-xl";
+
+                modal.appendChild(img);
+
+                // close on click
+                modal.onclick = () => modal.remove();
+
+                document.body.appendChild(modal);
+            }
+
+            document.getElementById("modalImg").src = src;
         }
-        function nextSlide() {
-            currentSlide++
-            if (currentSlide >= slides.length) currentSlide = 0
-            showSlide(currentSlide)
+
+        // ✅ LOAD GALLERY
+        async function loadGallery() {
+            try {
+                const res = await fetch(API_URL, { cache: "no-store" }); // ⚡ mobile fix
+                const data = await res.json();
+
+                console.log("Gallery Data:", data);
+
+                grid.innerHTML = "";
+
+                data.forEach(item => {
+
+                    const wrapper = document.createElement("div");
+                    wrapper.className = "overflow-hidden rounded-2xl";
+
+                    const img = document.createElement("img");
+
+                    // ✅ mobile-safe image
+                    img.src = item.image;
+                    img.loading = "lazy";
+
+                    img.className = "w-full h-[220px] md:h-[320px] object-cover transition duration-500 hover:scale-105 cursor-pointer block";
+
+                    // ❗ fallback if fails
+                    img.onerror = () => {
+                        console.log("Image failed:", item.image);
+                        img.src = "https://via.placeholder.com/400x300?text=Error";
+                    };
+
+                    // ✅ click fullscreen
+                    img.addEventListener("click", () => {
+                        openFullscreen(item.image);
+                    });
+
+                    wrapper.appendChild(img);
+                    grid.appendChild(wrapper);
+                });
+
+            } catch (err) {
+                console.error("Gallery Error:", err);
+
+                // show error UI (important for mobile debugging)
+                grid.innerHTML = `<p class="text-red-500">Failed to load images</p>`;
+            }
         }
-        function prevSlide() {
-            currentSlide--
-            if (currentSlide < 0) currentSlide = slides.length - 1
-            showSlide(currentSlide)
-        }
-        setInterval(nextSlide, 5000)
-        showSlide(0)
+
+        // ✅ ensure DOM ready (important for mobile)
+        document.addEventListener("DOMContentLoaded", loadGallery);
     </script>
 
 
-    <!-- MAGH VISION SECTION -->
-    <section class="fade-section py-10">
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-stretch">
-            <div class="hidden md:block h-full">
-                <img src="/Assets/main bg.jpg" class="w-full h-full object-cover rounded-3xl">
-            </div>
-            <div class="flex flex-col justify-center h-full">
-                <h3 class="text-3xl md:text-4xl font-light text-gray-900 mb-3">
-                    Magh <span class="font-bold">Vision</span>
-                </h3>
-                <p class="text-black leading-relaxed">
-                    Our vision is to build a strong, united, and vibrant Malayalee community in Greater Houston by
-                    preserving and celebrating our rich cultural heritage while fostering a spirit of unity, service,
-                    and compassion. We strive to create meaningful opportunities for members of all ages to connect,
-                    grow, and support one another through cultural programs, community initiatives, and charitable
-                    activities.<br><br>
-                    Through active community engagement, volunteer service, and educational programs, we aim to inspire
-                    future generations to embrace their roots, develop leadership qualities, and contribute positively
-                    to society. By promoting togetherness, cultural pride, and social responsibility, we aspire to make
-                    a lasting impact within our community and extend our support to those in need both locally and
-                    globally.
-                </p><br>
-                <a href="/Pages/contact.html"
-                    class="inline-block bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-medium transition w-fit">
-                    Get in Touch
-                </a>
-            </div>
-        </div>
-    </section>
 
 
-    <!-- FOOTER -->
+
+
+
+
+
+
     <footer class="text-white pt-16 pb-8 bg-cover bg-center relative"
         style="background-image:url('/Assets/Gradient.jpg');">
+
         <div class="relative max-w-7xl mx-auto px-6">
+
+            <!-- Top Footer -->
             <div class="grid lg:grid-cols-2 gap-12">
+
+                <!-- Left: Logo + Description -->
                 <div>
+
                     <div class="flex items-center gap-4 mb-4">
+
                         <img src="/Assets/Logo.jpg" class="w-14">
+
                         <h3 class="text-xl font-semibold leading-tight">
-                            Malayalee Association<br>of Greater Houston
+                            Malayalee Association<br>
+                            of Greater Houston
                         </h3>
+
                     </div>
+
                     <p class="text-white/80 text-sm leading-relaxed max-w-xl">
-                        MAGH is committed to preserving and promoting Kerala's cultural heritage while
+                        MAGH is committed to preserving and promoting Kerala’s cultural heritage while
                         building a strong and vibrant Malayalee community in Greater Houston through
                         meaningful events, programs, and community initiatives.
                     </p>
+
                 </div>
+
+
+                <!-- Right Links -->
                 <div class="grid grid-cols-2 sm:grid-cols-3 gap-10">
+
+                    <!-- Quick Links -->
                     <div>
+
                         <h4 class="font-semibold mb-4">Quick Links</h4>
+
                         <ul class="space-y-3 text-white/80 text-sm">
+
                             <li><a href="/index.html" class="hover:text-white">Home</a></li>
                             <li><a href="/Pages/about.html" class="hover:text-white">About</a></li>
                             <li><a href="/Events/community events.html" class="hover:text-white">Events</a></li>
                             <li><a href="/Pages/gallery.html" class="hover:text-white">Gallery</a></li>
                             <li><a href="/Pages/malayalam class.html" class="hover:text-white">Malayalam Class</a></li>
+
                         </ul>
+
                     </div>
+
+
+                    <!-- Resources -->
                     <div>
+
                         <h4 class="font-semibold mb-4">Resources</h4>
                         <ul class="space-y-3 text-white/80 text-sm">
                             <li><a href="/Pages/bod.html" class="hover:text-white">MAGH Board</a></li>
@@ -621,40 +540,86 @@
                             <li><a href="/payments/join magh.html" class="hover:text-white">Sponsorship</a></li>
                             <li><a href="/Pages/video wall.html" class="hover:text-white">Video Wall</a></li>
                             <li><a href="/Pages/contact.html" class="hover:text-white">Contact</a></li>
+
                         </ul>
+
                     </div>
+
+
+                    <!-- Contact -->
                     <div>
+
                         <h4 class="font-semibold mb-4">Contact Us</h4>
+
                         <div class="space-y-3 text-white/80 text-sm">
-                            <p>1415 Packer Ln, Stafford,<br>TX 77477, USA</p>
-                            <p class="underline">secretary@maghusa.org</p>
-                            <p>713-515-8432</p>
+
+                            <p>
+                                1415 Packer Ln, Stafford,<br>
+                                TX 77477, USA
+                            </p>
+
+                            <p class="underline">
+                                secretary@maghusa.org
+                            </p>
+
+                            <p>
+                                713-515-8432
+                            </p>
+
                         </div>
+
                     </div>
+
                 </div>
+
             </div>
-            <div
-                class="border-t border-white/20 mt-12 pt-6 flex flex-col md:flex-row items-center justify-between gap-6">
+
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-white/20 mt-12 pt-6
+flex flex-col md:flex-row items-center justify-between gap-6">
+
+                <!-- Copyright -->
                 <p class="text-white/80 text-sm text-center md:text-left">
                     ©2026 by Malayalee Association of Greater Houston (MAGH)
                 </p>
+
+
+                <!-- Social Section -->
                 <div class="flex items-center gap-3">
+
+                    <!-- Location Icon -->
                     <a href="/Pages/contact.html"
                         class="bg-white/20 backdrop-blur w-12 h-12 rounded-full flex items-center justify-center hover:bg-white/40 transition">
+
                         <i data-lucide="map-pin" class="w-5 h-5"></i>
+
                     </a>
+
+                    <!-- Social Icons -->
                     <div class="bg-white/20 backdrop-blur px-6 py-3 rounded-full flex items-center gap-6 text-lg">
+
                         <a href="https://www.instagram.com/maghcommunication" class="hover:scale-110 transition">
                             <i class="fa-brands fa-instagram"></i>
                         </a>
+
                         <a href="https://www.facebook.com/maghcommunication" class="hover:scale-110 transition">
                             <i class="fa-brands fa-facebook-f"></i>
                         </a>
+
                     </div>
+
                 </div>
+
             </div>
+
         </div>
+
     </footer>
+
+
+
+
 
 
     <!-- SCRIPTS -->
@@ -836,16 +801,7 @@
         }
 
         // ================= EVENTS API FETCH =================
-        const API_URL = "https://script.google.com/macros/s/AKfycbxPBqB_0Zsp2fmU_kzPCXDmZPNX-RHCKsvsogoVblziiTqbekjQj3p6bK5OqS7o0sy1/exec?type=upcoming";
 
-        function formatDisplayDate(dateStr) {
-            const date = new Date(dateStr);
-            return date.toLocaleDateString("en-US", {
-                weekday: "short",
-                month: "short",
-                day: "numeric"
-            });
-        }
 
         function toggleLike(el) {
             const icon = el.querySelector("i");
@@ -978,6 +934,9 @@
             });
         });
     </script>
+
+
+
 
 </body>
 

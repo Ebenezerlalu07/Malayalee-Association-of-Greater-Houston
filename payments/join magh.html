@@ -68,7 +68,7 @@
                     <!-- ABOUT DROPDOWN -->
                     <div class="relative nav-dropdown-group">
                         <button
-                            class="nav-dropdown-trigger flex items-center gap-1 px-4 py-2 rounded-lg shadow-sm transition">
+                            class="nav-dropdown-trigger flex items-center gap-1 hover:text-emerald-600 py-2 transition">
                             About
                             <i data-lucide="chevron-down"
                                 class="w-3.5 h-3.5 nav-chevron transition-transform duration-300"></i>
@@ -122,7 +122,7 @@
                     <!-- COMMUNITY DROPDOWN -->
                     <div class="relative nav-dropdown-group">
                         <button
-                            class="nav-dropdown-trigger flex items-center gap-1  hover:text-emerald-600 py-2 transition   bg-emerald-600 text-white px-4 py-2 rounded-lg shadow-sm hover:bg-emerald-700 transition">
+                            class="nav-dropdown-trigger flex items-center gap-1 hover:text-emerald-600 py-2 transition">
                             Community
                             <i data-lucide="chevron-down"
                                 class="w-3.5 h-3.5 nav-chevron transition-transform duration-300"></i>
@@ -168,6 +168,15 @@
                             </div>
                         </div>
                     </div>
+
+
+                    <!-- MEDIA LINK -->
+                    <div class="relative nav-dropdown-group">
+                        <a href="/Pages/onam.html"
+                            class="nav-dropdown-trigger flex items-center gap-1 hover:text-emerald-600 py-2 transition">
+                            Onam Ticket
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Mobile Morphing Hamburger Button -->
@@ -184,7 +193,6 @@
         <div id="mobileMenu"
             class="hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100 p-6 z-40 max-h-[calc(100vh-80px)] overflow-y-auto">
             <div class="space-y-1 text-gray-700 font-medium">
-
 
                 <!-- MOBILE ABOUT -->
                 <div class="border-b border-gray-50 pb-1">
@@ -273,6 +281,17 @@
                         </a>
                     </div>
                 </div>
+
+
+
+                <!-- Onam Tickets -->
+                <div class="border-b border-gray-50 pb-1">
+                    <a href="/Pages/onam.html"
+                        class="flex justify-between items-center w-full px-4 py-3 hover:bg-gray-50 rounded-2xl transition">
+                        <span>Onam Ticket</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
@@ -303,30 +322,16 @@
 
 
     <section class="bg-gray-100 py-16">
-            <div class="max-w-7xl mx-auto px-6 space-y-12">
+        <div class="max-w-7xl mx-auto px-6 space-y-12">
 
 
-                <!-- Ticket Tailor Widget. Paste this into your website where you want the widget to appear. Do not change the code or the widget may not work properly. -->
-                <div class="tt-widget">
-                    <div class="tt-widget-fallback">
-                        <p><a href="https://www.tickettailor.com/all-tickets/magh/?ref=website_widget&show_search_filter=true&show_date_filter=true&show_sort=true"
-                                target="_blank">Click here to buy tickets</a><br /><small><a
-                                    href="https://www.tickettailor.com?rf=wdg_324682" class="tt-widget-powered">Sell
-                                    tickets
-                                    online with Ticket Tailor</a></small></p>
-                    </div>
-                    <script src="https://cdn.tickettailor.com/js/widgets/min/widget.js"
-                        data-url="https://www.tickettailor.com/all-tickets/magh/?ref=website_widget&show_search_filter=true&show_date_filter=true&show_sort=true"
-                        data-type="inline" data-inline-minimal="true" data-inline-show-logo="false"
-                        data-inline-bg-fill="false" data-inline-inherit-ref-from-url-param=""
-                        data-inline-ref="website_widget"></script>
-                </div><!-- End of Ticket Tailor Widget -->
 
 
-                <!-- <div class="grid md:grid-cols-2 gap-8 items-center">
+
+            <div class="grid md:grid-cols-2 gap-8 items-center">
 
                 <div>
-                 
+
                     <div
                         class="inline-flex items-center bg-[#79F200]/20 text-[#1C8E00] text-sm font-medium px-4 py-1 rounded-full">
                         <span class="w-2 h-2 bg-[#1C8E00] rounded-full mr-2"></span>
@@ -349,7 +354,7 @@
 
             </div>
 
-       
+
             <div class="grid md:grid-cols-2 gap-8 items-center">
 
                 <div>
@@ -394,9 +399,9 @@
                     <img src="/Assets/QR Code.png" class="w-40 inline-block" alt="QR Code">
                 </div>
 
-            </div> -->
-
             </div>
+
+        </div>
     </section>
 
 
