@@ -642,11 +642,11 @@ flex flex-col md:flex-row items-center justify-between gap-6">
 
             if (isNaN(date)) return "";
 
-            const month = String(date.getMonth() + 1).padStart(2, "0");
+            const month = date.toLocaleString("en-US", { month: "short" }); // Aug
             const day = String(date.getDate()).padStart(2, "0");
             const year = date.getFullYear();
 
-            return `${month}/${day}/${year}`;
+            return `${month}-${day}-${year}`;
         }
 
         function createCard(event) {
