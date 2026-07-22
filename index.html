@@ -95,10 +95,10 @@
                                     class="flex items-center gap-3 px-5 py-3 hover:bg-emerald-50 hover:text-emerald-700 transition">
                                     <i data-lucide="clock" class="w-4 h-4 text-emerald-500"></i> Previous Events
                                 </a>
-                                <a href="/Events/community events.html"
+                                <!-- <a href="/Events/community events.html"
                                     class="flex items-center gap-3 px-5 py-3 hover:bg-emerald-50 hover:text-emerald-700 transition">
                                     <i data-lucide="heart" class="w-4 h-4 text-emerald-500"></i> Community Events
-                                </a>
+                                </a> -->
                             </div>
                         </div>
                     </div>
@@ -217,10 +217,10 @@
                             class="flex items-center gap-3 py-2.5 px-4 text-gray-600 hover:text-emerald-600 rounded-xl">
                             <i data-lucide="clock" class="w-4 h-4 text-emerald-400"></i> Previous Events
                         </a>
-                        <a href="/Events/community events.html"
+                        <!-- <a href="/Events/community events.html"
                             class="flex items-center gap-3 py-2.5 px-4 text-gray-600 hover:text-emerald-600 rounded-xl">
                             <i data-lucide="heart" class="w-4 h-4 text-emerald-400"></i> Community Events
-                        </a>
+                        </a> -->
                     </div>
                 </div>
 
@@ -984,15 +984,27 @@
                 </p>
             </div>
 
-            <!-- Event Cards Container -->
-            <div id="eventsContainer" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Loader Placeholder -->
-                <div class="col-span-full py-16 flex flex-col items-center justify-center text-gray-400 gap-3">
-                    <div class="w-10 h-10 border-4 border-gray-200 border-t-emerald-600 rounded-full animate-spin">
-                    </div>
-                    <p class="text-sm">Fetching upcoming events...</p>
+
+            <!-- Dynamic Event Cards -->
+            <div id="eventsContainer" class="grid md:grid-cols-3 gap-8"></div> <br>
+
+            <!-- Ticket Tailor Widget. Paste this into your website where you want the widget to appear. Do not change the code or the widget may not work properly. -->
+            <div class="tt-widget">
+                <div class="tt-widget-fallback">
+                    <p><a href="https://www.tickettailor.com/all-tickets/magh/?ref=website_widget&show_search_filter=true&show_date_filter=true&show_sort=true"
+                            target="_blank">Click here to buy tickets</a><br /><small><a
+                                href="https://www.tickettailor.com?rf=wdg_324682" class="tt-widget-powered">Sell
+                                tickets
+                                online with Ticket Tailor</a></small></p>
                 </div>
-            </div>
+                <script src="https://cdn.tickettailor.com/js/widgets/min/widget.js"
+                    data-url="https://www.tickettailor.com/all-tickets/magh/?ref=website_widget&show_search_filter=true&show_date_filter=true&show_sort=true"
+                    data-type="inline" data-inline-minimal="true" data-inline-show-logo="false"
+                    data-inline-bg-fill="false" data-inline-inherit-ref-from-url-param=""
+                    data-inline-ref="website_widget"></script>
+            </div><!-- End of Ticket Tailor Widget -->
+
+        </div>
 
         </div>
     </section>
@@ -1367,11 +1379,14 @@
 
         function formatDisplayDate(dateStr) {
             const date = new Date(dateStr);
-            return date.toLocaleDateString("en-US", {
-                weekday: "short",
-                month: "short",
-                day: "numeric"
-            });
+
+            if (isNaN(date)) return "";
+
+            const month = String(date.getMonth() + 1).padStart(2, "0");
+            const day = String(date.getDate()).padStart(2, "0");
+            const year = date.getFullYear();
+
+            return `${month}/${day}/${year}`;
         }
 
         function toggleLike(el) {

@@ -111,10 +111,10 @@
                                     class="flex items-center gap-3 px-5 py-3 hover:bg-emerald-50 hover:text-emerald-700 transition">
                                     <i data-lucide="clock" class="w-4 h-4 text-emerald-500"></i> Previous Events
                                 </a>
-                                <a href="/Events/community events.html"
+                                <!-- <a href="/Events/community events.html"
                                     class="flex items-center gap-3 px-5 py-3 hover:bg-emerald-50 hover:text-emerald-700 transition">
                                     <i data-lucide="heart" class="w-4 h-4 text-emerald-500"></i> Community Events
-                                </a>
+                                </a> -->
                             </div>
                         </div>
                     </div>
@@ -233,10 +233,10 @@
                             class="flex items-center gap-3 py-2.5 px-4 text-gray-600 hover:text-emerald-600 rounded-xl">
                             <i data-lucide="clock" class="w-4 h-4 text-emerald-400"></i> Previous Events
                         </a>
-                        <a href="/Events/community events.html"
+                        <!-- <a href="/Events/community events.html"
                             class="flex items-center gap-3 py-2.5 px-4 text-gray-600 hover:text-emerald-600 rounded-xl">
                             <i data-lucide="heart" class="w-4 h-4 text-emerald-400"></i> Community Events
-                        </a>
+                        </a> -->
                     </div>
                 </div>
 
@@ -640,11 +640,13 @@ flex flex-col md:flex-row items-center justify-between gap-6">
         function formatDisplayDate(dateStr) {
             const date = new Date(dateStr);
 
-            return date.toLocaleDateString("en-US", {
-                weekday: "short",
-                month: "short",
-                day: "numeric"
-            });
+            if (isNaN(date)) return "";
+
+            const month = String(date.getMonth() + 1).padStart(2, "0");
+            const day = String(date.getDate()).padStart(2, "0");
+            const year = date.getFullYear();
+
+            return `${month}/${day}/${year}`;
         }
 
         function createCard(event) {
